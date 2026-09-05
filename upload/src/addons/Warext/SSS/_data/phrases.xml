@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phrases>
-  <phrase title="permission_group_wrxtSss" version_id="1000200" version_string="1.0.2"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
-  <phrase title="permission_wrxtSss_view" version_id="1000200" version_string="1.0.2"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
-  <phrase title="admin_permission_wrxtSssManage" version_id="1000200" version_string="1.0.2"><![CDATA[SSS sistemini yönet]]></phrase>
-  <phrase title="admin_navigation.wrxtSssCategories" version_id="1000200" version_string="1.0.2"><![CDATA[SSS Kategorileri]]></phrase>
-  <phrase title="admin_navigation.wrxtSssFaqs" version_id="1000200" version_string="1.0.2"><![CDATA[SSS Soruları]]></phrase>
-  <phrase title="nav.wrxtSss" version_id="1000200" version_string="1.0.2"><![CDATA[SSS]]></phrase>
-  <phrase title="wrxt_sss_title" version_id="1000200" version_string="1.0.2"><![CDATA[Sıkça Sorulan Sorular]]></phrase>
-  <phrase title="wrxt_sss_description" version_id="1000200" version_string="1.0.2"><![CDATA[Forum hakkında en sık sorulan soruların cevaplarına buradan ulaşabilirsiniz.]]></phrase>
-  <phrase title="wrxt_sss_empty" version_id="1000200" version_string="1.0.2"><![CDATA[Henüz yayınlanmış bir SSS bulunmuyor.]]></phrase>
-  <phrase title="wrxt_sss_search_placeholder" version_id="1000200" version_string="1.0.2"><![CDATA[SSS içinde ara...]]></phrase>
-  <phrase title="wrxt_sss_open_all" version_id="1000200" version_string="1.0.2"><![CDATA[Tümünü aç]]></phrase>
-  <phrase title="wrxt_sss_close_all" version_id="1000200" version_string="1.0.2"><![CDATA[Tümünü kapat]]></phrase>
-  <phrase title="option_group_wrxtSssSettings" version_id="1000200" version_string="1.0.2"><![CDATA[Warext SSS Sistemi]]></phrase>
-  <phrase title="option_group_wrxtSssSettings_description" version_id="1000200" version_string="1.0.2"><![CDATA[SSS sayfasının temel görünüm ve davranış ayarları.]]></phrase>
-  <phrase title="option_wrxtSssPageTitle" version_id="1000200" version_string="1.0.2"><![CDATA[SSS sayfa başlığı]]></phrase>
-  <phrase title="option_wrxtSssPageTitle_explain" version_id="1000200" version_string="1.0.2"><![CDATA[SSS sayfasının üst kısmında ve tarayıcı başlığında gösterilir.]]></phrase>
-  <phrase title="option_wrxtSssPageDescription" version_id="1000200" version_string="1.0.2"><![CDATA[SSS sayfa açıklaması]]></phrase>
-  <phrase title="option_wrxtSssPageDescription_explain" version_id="1000200" version_string="1.0.2"><![CDATA[SSS başlığının altında gösterilen kısa açıklamadır.]]></phrase>
-  <phrase title="option_wrxtSssSearchEnabled" version_id="1000200" version_string="1.0.2"><![CDATA[Liste filtreleme alanını göster]]></phrase>
-  <phrase title="option_wrxtSssOpenCloseButtons" version_id="1000200" version_string="1.0.2"><![CDATA[Tümünü aç / kapat butonlarını göster]]></phrase>
-  <phrase title="option_wrxtSssExclusiveOpen" version_id="1000200" version_string="1.0.2"><![CDATA[Aynı anda yalnızca bir cevap açık kalsın]]></phrase>
-  <phrase title="option_wrxtSssShowPermalinks" version_id="1000200" version_string="1.0.2"><![CDATA[Doğrudan soru bağlantısını göster]]></phrase>
-  <phrase title="option_wrxtSssBadgeDays" version_id="1000200" version_string="1.0.2"><![CDATA[Yeni / güncellendi etiketi süresi]]></phrase>
-  <phrase title="option_wrxtSssBadgeDays_explain" version_id="1000200" version_string="1.0.2"><![CDATA[Etiketlerin kaç gün gösterileceğini belirler. 0 girilirse etiketler kapatılır.]]></phrase>
+  <phrase title="permission_group_wrxtSss" version_id="1010000" version_string="1.1.0"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
+  <phrase title="permission_wrxtSss_view" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
+  <phrase title="admin_permission_wrxtSssManage" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sistemini yönet]]></phrase>
+  <phrase title="admin_navigation.wrxtSssCategories" version_id="1010000" version_string="1.1.0"><![CDATA[SSS Kategorileri]]></phrase>
+  <phrase title="admin_navigation.wrxtSssFaqs" version_id="1010000" version_string="1.1.0"><![CDATA[SSS Soruları]]></phrase>
+  <phrase title="nav.wrxtSss" version_id="1010000" version_string="1.1.0"><![CDATA[SSS]]></phrase>
+  <phrase title="widget_def.wrxt_sss_faq" version_id="1010000" version_string="1.1.0"><![CDATA[Warext SSS: Sıkça Sorulanlar]]></phrase>
+  <phrase title="widget_def_desc.wrxt_sss_faq" version_id="1010000" version_string="1.1.0"><![CDATA[SSS kayıtlarından kısa bir listeyi seçtiğiniz widget konumunda gösterir.]]></phrase>
+  <phrase title="wrxt_sss_title" version_id="1010000" version_string="1.1.0"><![CDATA[Sıkça Sorulan Sorular]]></phrase>
+  <phrase title="wrxt_sss_description" version_id="1010000" version_string="1.1.0"><![CDATA[Forum hakkında en sık sorulan soruların cevaplarına buradan ulaşabilirsiniz.]]></phrase>
+  <phrase title="wrxt_sss_empty" version_id="1010000" version_string="1.1.0"><![CDATA[Henüz yayınlanmış bir SSS bulunmuyor.]]></phrase>
+  <phrase title="wrxt_sss_search_placeholder" version_id="1010000" version_string="1.1.0"><![CDATA[SSS içinde ara...]]></phrase>
+  <phrase title="wrxt_sss_open_all" version_id="1010000" version_string="1.1.0"><![CDATA[Tümünü aç]]></phrase>
+  <phrase title="wrxt_sss_close_all" version_id="1010000" version_string="1.1.0"><![CDATA[Tümünü kapat]]></phrase>
+  <phrase title="option_group_wrxtSssSettings" version_id="1010000" version_string="1.1.0"><![CDATA[Warext SSS Sistemi]]></phrase>
+  <phrase title="option_group_wrxtSssSettings_description" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasının temel görünüm ve davranış ayarları.]]></phrase>
+  <phrase title="option_wrxtSssPageTitle" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfa başlığı]]></phrase>
+  <phrase title="option_wrxtSssPageTitle_explain" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasının üst kısmında ve tarayıcı başlığında gösterilir.]]></phrase>
+  <phrase title="option_wrxtSssPageDescription" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfa açıklaması]]></phrase>
+  <phrase title="option_wrxtSssPageDescription_explain" version_id="1010000" version_string="1.1.0"><![CDATA[SSS başlığının altında gösterilen kısa açıklamadır.]]></phrase>
+  <phrase title="option_wrxtSssSearchEnabled" version_id="1010000" version_string="1.1.0"><![CDATA[Liste filtreleme alanını göster]]></phrase>
+  <phrase title="option_wrxtSssOpenCloseButtons" version_id="1010000" version_string="1.1.0"><![CDATA[Tümünü aç / kapat butonlarını göster]]></phrase>
+  <phrase title="option_wrxtSssExclusiveOpen" version_id="1010000" version_string="1.1.0"><![CDATA[Aynı anda yalnızca bir cevap açık kalsın]]></phrase>
+  <phrase title="option_wrxtSssShowPermalinks" version_id="1010000" version_string="1.1.0"><![CDATA[Doğrudan soru bağlantısını göster]]></phrase>
+  <phrase title="option_wrxtSssBadgeDays" version_id="1010000" version_string="1.1.0"><![CDATA[Yeni / güncellendi etiketi süresi]]></phrase>
+  <phrase title="option_wrxtSssBadgeDays_explain" version_id="1010000" version_string="1.1.0"><![CDATA[Etiketlerin kaç gün gösterileceğini belirler. 0 girilirse etiketler kapatılır.]]></phrase>
 </phrases>

@@ -6,6 +6,7 @@ use XF\AddOn\AbstractSetup;
 use XF\AddOn\StepRunnerInstallTrait;
 use XF\AddOn\StepRunnerUninstallTrait;
 use XF\AddOn\StepRunnerUpgradeTrait;
+use XF\Db\Schema\Alter;
 use XF\Db\Schema\Create;
 
 class Setup extends AbstractSetup
@@ -22,6 +23,7 @@ class Setup extends AbstractSetup
             $table->addColumn('title', 'varchar', 100);
             $table->addColumn('description', 'varchar', 255)->setDefault('');
             $table->addColumn('icon', 'varchar', 64)->setDefault('fa-circle-question');
+            $table->addColumn('allowed_user_group_ids', 'varchar', 255)->setDefault('');
             $table->addColumn('display_order', 'int')->unsigned()->setDefault(10);
             $table->addColumn('is_active', 'tinyint')->unsigned()->setDefault(1);
             $table->addColumn('created_date', 'int')->unsigned();
@@ -40,6 +42,7 @@ class Setup extends AbstractSetup
             $table->addColumn('question', 'varchar', 255);
             $table->addColumn('answer', 'mediumtext');
             $table->addColumn('anchor', 'varchar', 100)->setDefault('');
+            $table->addColumn('allowed_user_group_ids', 'varchar', 255)->setDefault('');
             $table->addColumn('display_order', 'int')->unsigned()->setDefault(10);
             $table->addColumn('is_active', 'tinyint')->unsigned()->setDefault(1);
             $table->addColumn('is_featured', 'tinyint')->unsigned()->setDefault(0);
@@ -52,44 +55,37 @@ class Setup extends AbstractSetup
         });
     }
 
+    public function upgrade1010000Step1(): void
+    {
+        $this->schemaManager()->alterTable('xf_wrxt_sss_category', function(Alter $table)
+        {
+            $table->addColumn('allowed_user_group_ids', 'varchar', 255)->setDefault('')->after('icon');
+        });
+        $this->schemaManager()->alterTable('xf_wrxt_sss_faq', function(Alter $table)
+        {
+            $table->addColumn('allowed_user_group_ids', 'varchar', 255)->setDefault('')->after('anchor');
+        });
+    }
+
     public function postInstall(array &$stateChanges): void
     {
-        foreach ([1, 2, 3, 4] as $userGroupId)
-        {
-            $this->applyViewPermission($userGroupId);
-        }
+        foreach ([1, 2, 3, 4] as $userGroupId) { $this->applyViewPermission($userGroupId); }
     }
 
     protected function applyViewPermission(int $userGroupId): void
     {
         $userGroup = \XF::em()->find('XF:UserGroup', $userGroupId);
-        if (!$userGroup)
-        {
-            return;
-        }
-
+        if (!$userGroup) { return; }
         $permissionRepo = \XF::repository('XF:PermissionEntry');
         $existing = $permissionRepo->getGlobalUserGroupPermissionEntries($userGroupId);
         $configured = $existing['wrxtSss'] ?? [];
-
-        if (array_key_exists('view', $configured))
-        {
-            return;
-        }
-
+        if (array_key_exists('view', $configured)) { return; }
         $service = \XF::service('XF:UpdatePermissions');
         $service->setUserGroup($userGroup);
         $service->setGlobal();
         $service->updatePermissions(['wrxtSss' => ['view' => 'allow']]);
     }
 
-    public function uninstallStep1(): void
-    {
-        $this->schemaManager()->dropTable('xf_wrxt_sss_faq');
-    }
-
-    public function uninstallStep2(): void
-    {
-        $this->schemaManager()->dropTable('xf_wrxt_sss_category');
-    }
+    public function uninstallStep1(): void { $this->schemaManager()->dropTable('xf_wrxt_sss_faq'); }
+    public function uninstallStep2(): void { $this->schemaManager()->dropTable('xf_wrxt_sss_category'); }
 }

@@ -44,7 +44,9 @@ class Category extends AbstractController
     protected function categoryAddEdit(CategoryEntity $category)
     {
         return $this->view('Warext\SSS:CategoryEdit', 'wrxt_sss_admin_category_edit', [
-            'category' => $category
+            'category' => $category,
+            'userGroups' => $this->getUserGroups(),
+            'allowedGroupIds' => $this->parseGroupIds($category->allowed_user_group_ids)
         ]);
     }
 
@@ -63,10 +65,14 @@ class Category extends AbstractController
             'display_order' => 'uint',
             'is_active' => 'bool'
         ]);
+        $allowedGroupIds = array_values(array_unique(array_filter(
+            $this->filter('allowed_user_group_ids', 'array-uint')
+        )));
 
         $input['title'] = trim($input['title']);
         $input['description'] = trim($input['description']);
         $input['icon'] = trim($input['icon']);
+        $input['allowed_user_group_ids'] = implode(',', $allowedGroupIds);
 
         if ($input['title'] === '')
         {
@@ -122,6 +128,68 @@ class Category extends AbstractController
         $category->save();
 
         return $this->redirect($this->buildLink('wrxt-sss-kategoriler'));
+    }
+
+    public function actionSort()
+    {
+        $categories = $this->finder('Warext\SSS:Category')
+            ->order('display_order')
+            ->order('title')
+            ->fetch();
+
+        return $this->view('Warext\SSS:CategorySort', 'wrxt_sss_admin_category_sort', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function actionSortSave()
+    {
+        $this->assertPostOnly();
+        $order = array_values(array_unique($this->filter('order', 'array-uint')));
+        $displayOrder = 10;
+
+        $db = $this->app()->db();
+        $db->beginTransaction();
+        try
+        {
+            foreach ($order as $categoryId)
+            {
+                $category = $this->em()->find('Warext\SSS:Category', $categoryId);
+                if (!$category)
+                {
+                    continue;
+                }
+
+                $category->display_order = $displayOrder;
+                $category->save();
+                $displayOrder += 10;
+            }
+            $db->commit();
+        }
+        catch (\Throwable $e)
+        {
+            $db->rollback();
+            throw $e;
+        }
+
+        return $this->redirect($this->buildLink('wrxt-sss-kategoriler'));
+    }
+
+    protected function getUserGroups()
+    {
+        return $this->finder('XF:UserGroup')
+            ->order('title')
+            ->fetch();
+    }
+
+    protected function parseGroupIds(string $groupIds): array
+    {
+        if ($groupIds === '')
+        {
+            return [];
+        }
+
+        return array_values(array_unique(array_filter(array_map('intval', explode(',', $groupIds)))));
     }
 
     protected function assertCategoryExists(int $id): CategoryEntity

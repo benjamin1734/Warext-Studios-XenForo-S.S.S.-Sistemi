@@ -39,6 +39,15 @@ jobs:
           for path in sorted((root / '_data').glob('*.xml')):
               ET.parse(path)
               print(f'XML OK: {path}')
+          required = [
+              root / 'Setup.php',
+              root / 'Widget' / 'FaqList.php',
+              root / '_data' / 'widget_definitions.xml',
+              root / '_data' / 'templates.xml'
+          ]
+          missing = [str(p) for p in required if not p.is_file()]
+          if missing:
+              raise SystemExit('Missing required files: ' + ', '.join(missing))
           print('JSON OK: addon.json')
           PY
 
@@ -55,7 +64,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          VERSION='${{ steps.version.outputs.version }}'
           ZIP='${{ steps.version.outputs.zip }}'
           rm -rf build
           mkdir -p build/upload/src/addons/Warext
@@ -79,10 +87,7 @@ jobs:
           print(f'Generated hashes.json with {len(hashes)} files')
           PY
 
-          (
-            cd build
-            zip -r -9 "../${ZIP}" upload hashes.json README.md
-          )
+          (cd build && zip -r -9 "../${ZIP}" upload hashes.json README.md)
           unzip -l "${ZIP}"
 
       - name: Create or update GitHub Release
@@ -94,12 +99,10 @@ jobs:
           TAG='${{ steps.version.outputs.tag }}'
           ZIP='${{ steps.version.outputs.zip }}'
           VERSION='${{ steps.version.outputs.version }}'
+          NOTES='XenForo 2.3+ için doğrudan Add-ons > Install/upgrade from archive alanından kurulabilen S.S.S. eklenti paketi. Kategori ve soru/cevap ACP yönetimi, BBCode editörü, default tema görünümü, filtreleme, permalink, aç/kapat davranışları, kullanıcı grubu görünürlüğü, sürükle-bırak sıralama, izinler, navigasyon ve Widget Manager entegrasyonu dahildir.'
 
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" "$ZIP" --clobber
           else
-            gh release create "$TAG" "$ZIP" \
-              --target "$GITHUB_SHA" \
-              --title "Warext Studios | XenForo S.S.S. Sistemi v${VERSION}" \
-              --notes "XenForo 2.3+ için doğrudan Add-ons > Install/upgrade from archive alanından kurulabilen S.S.S. eklenti paketi. Kategori ve soru/cevap ACP yönetimi, BBCode editörü, default tema görünümü, filtreleme, permalink, aç/kapat davranışları, izinler ve SSS navigasyon entegrasyonu dahildir."
+            gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "Warext Studios | XenForo S.S.S. Sistemi v${VERSION}" --notes "$NOTES"
           fi

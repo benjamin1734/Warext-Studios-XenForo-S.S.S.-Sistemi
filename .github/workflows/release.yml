@@ -99,10 +99,12 @@ jobs:
           TAG='${{ steps.version.outputs.tag }}'
           ZIP='${{ steps.version.outputs.zip }}'
           VERSION='${{ steps.version.outputs.version }}'
-          NOTES='XenForo 2.3+ için doğrudan Add-ons > Install/upgrade from archive alanından kurulabilen S.S.S. eklenti paketi. Kategori ve soru/cevap ACP yönetimi, BBCode editörü, default tema görünümü, filtreleme, permalink, aç/kapat davranışları, kullanıcı grubu görünürlüğü, sürükle-bırak sıralama, izinler, navigasyon ve Widget Manager entegrasyonu dahildir.'
+          TITLE="Warext Studios | XenForo S.S.S. Sistemi v${VERSION}"
+          NOTES="XenForo 2.3+ için kategori tabanlı Sıkça Sorulan Sorular eklentisi. Güncel sürüm: v${VERSION}. ZIP dosyası XenForo ACP > Add-ons > Install/upgrade from archive alanından doğrudan kurulabilir."
 
           if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "$TITLE" --notes "$NOTES"
             gh release upload "$TAG" "$ZIP" --clobber
           else
-            gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "Warext Studios | XenForo S.S.S. Sistemi v${VERSION}" --notes "$NOTES"
+            gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES"
           fi

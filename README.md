@@ -11,6 +11,8 @@ XenForo 2.3+ için varsayılan temayla uyumlu, klasik kategori > soru > açılı
 - ACP SSS soru/cevap ekleme, düzenleme ve silme
 - XenForo BBCode editörü
 - Aktif/pasif kayıtlar ve görüntüleme sırası
+- Sürükle-bırak kategori ve soru sıralama
+- Kategori ve soru seviyesinde kullanıcı grubu görünürlüğü
 - Öne çıkan SSS etiketi
 - Yeni / güncellendi etiketi
 - Doğrudan soru bağlantıları (`/sss/#...`)
@@ -18,7 +20,9 @@ XenForo 2.3+ için varsayılan temayla uyumlu, klasik kategori > soru > açılı
 - Tümünü aç / tümünü kapat
 - Tek cevap veya birden fazla cevap açık tutma seçeneği
 - Public navigasyonda SSS sekmesi
-- Kullanıcı grubu görüntüleme izni
+- XenForo Widget Manager ile SSS widget'ı
+- Widget'ta soru limiti ve yalnızca öne çıkanları gösterme seçeneği
+- Genel kullanıcı grubu görüntüleme izni
 - Ayrı ACP yönetici izni
 - ACP seçeneklerinden sayfa başlığı/açıklaması ve davranış kontrolü
 - XenForo dosya sağlık kontrolü için release paketinde `hashes.json`
@@ -40,5 +44,8 @@ SSS sayfa ayarları, public navigasyon, tekli/çoklu açılma, permalink görün
 ### 1.0.3
 Final doğrulama, veritabanı erişim düzeltmesi, otomatik PHP/XML/JSON kontrolü ve GitHub Releases için doğrudan kurulabilir XenForo ZIP üretimi.
 
+### 1.1.0
+Widget Definition desteği, kategori/soru bazlı kullanıcı grubu görünürlüğü ve sürükle-bırak ACP sıralaması eklendi. 1.0.3 kurulumları veri kaybetmeden yükseltilebilir.
+
 ## Kurulum
-GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.0.3.zip` dosyasını XenForo ACP > Add-ons > Install/upgrade from archive alanından yükleyin.
+GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.0.zip` dosyasını XenForo ACP > Add-ons > Install/upgrade from archive alanından yükleyin.

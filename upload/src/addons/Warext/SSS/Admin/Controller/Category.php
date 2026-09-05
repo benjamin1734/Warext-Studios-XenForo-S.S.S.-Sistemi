@@ -20,7 +20,7 @@ class Category extends AbstractController
             ->order('title')
             ->fetch();
 
-        $faqCounts = $this->db()->fetchPairs(
+        $faqCounts = $this->app()->db()->fetchPairs(
             'SELECT category_id, COUNT(*) FROM xf_wrxt_sss_faq GROUP BY category_id'
         );
 
@@ -86,16 +86,17 @@ class Category extends AbstractController
 
         if ($this->isPost())
         {
-            $this->db()->beginTransaction();
+            $db = $this->app()->db();
+            $db->beginTransaction();
             try
             {
-                $this->db()->delete('xf_wrxt_sss_faq', 'category_id = ?', $category->category_id);
+                $db->delete('xf_wrxt_sss_faq', 'category_id = ?', $category->category_id);
                 $category->delete();
-                $this->db()->commit();
+                $db->commit();
             }
             catch (\Throwable $e)
             {
-                $this->db()->rollback();
+                $db->rollback();
                 throw $e;
             }
 

@@ -1,0 +1,105 @@
+name: Validate and Release XenForo Add-on
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'upload/src/addons/Warext/SSS/**'
+      - '.github/workflows/release.yml'
+      - 'README.md'
+
+permissions:
+  contents: write
+
+jobs:
+  validate-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate PHP syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          find upload/src/addons/Warext/SSS -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Validate XML and JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          import pathlib
+          import xml.etree.ElementTree as ET
+
+          root = pathlib.Path('upload/src/addons/Warext/SSS')
+          json.loads((root / 'addon.json').read_text(encoding='utf-8'))
+          for path in sorted((root / '_data').glob('*.xml')):
+              ET.parse(path)
+              print(f'XML OK: {path}')
+          print('JSON OK: addon.json')
+          PY
+
+      - name: Read version
+        id: version
+        shell: bash
+        run: |
+          VERSION=$(python3 -c "import json; print(json.load(open('upload/src/addons/Warext/SSS/addon.json'))['version_string'])")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=v${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "zip=Warext-Studios-XenForo-SSS-Sistemi-${VERSION}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Build XenForo install archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION='${{ steps.version.outputs.version }}'
+          ZIP='${{ steps.version.outputs.zip }}'
+          rm -rf build
+          mkdir -p build/upload/src/addons/Warext
+          cp -a upload/src/addons/Warext/SSS build/upload/src/addons/Warext/SSS
+          cp README.md build/README.md
+
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import pathlib
+
+          base = pathlib.Path('build/upload')
+          hashes = {}
+          for path in sorted(p for p in base.rglob('*') if p.is_file()):
+              rel = path.relative_to(base).as_posix()
+              hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
+          pathlib.Path('build/hashes.json').write_text(
+              json.dumps(hashes, ensure_ascii=False, indent=4, sort_keys=True) + '\n',
+              encoding='utf-8'
+          )
+          print(f'Generated hashes.json with {len(hashes)} files')
+          PY
+
+          (
+            cd build
+            zip -r -9 "../${ZIP}" upload hashes.json README.md
+          )
+          unzip -l "${ZIP}"
+
+      - name: Create or update GitHub Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG='${{ steps.version.outputs.tag }}'
+          ZIP='${{ steps.version.outputs.zip }}'
+          VERSION='${{ steps.version.outputs.version }}'
+
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$ZIP" --clobber
+          else
+            gh release create "$TAG" "$ZIP" \
+              --target "$GITHUB_SHA" \
+              --title "Warext Studios | XenForo S.S.S. Sistemi v${VERSION}" \
+              --notes "XenForo 2.3+ için doğrudan Add-ons > Install/upgrade from archive alanından kurulabilen S.S.S. eklenti paketi. Kategori ve soru/cevap ACP yönetimi, BBCode editörü, default tema görünümü, filtreleme, permalink, aç/kapat davranışları, izinler ve SSS navigasyon entegrasyonu dahildir."
+          fi

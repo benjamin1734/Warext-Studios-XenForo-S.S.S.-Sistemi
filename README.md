@@ -5,26 +5,29 @@ XenForo 2.3+ için varsayılan temayla uyumlu, klasik kategori > soru > açılı
 ## Özellikler
 - `/sss/` SSS sayfası
 - Kategori tabanlı soru/cevap düzeni
-- Soruya tıklayınca cevabın altında açılması
+- Soruya tıklayınca cevabın hemen altında açılması
 - XenForo default tema bileşenleri
-- ACP kategori CRUD yönetimi
-- ACP SSS soru/cevap CRUD yönetimi
+- ACP kategori ekleme, düzenleme ve silme
+- ACP SSS soru/cevap ekleme, düzenleme ve silme
 - XenForo BBCode editörü
-- Aktif/pasif kayıtlar
-- Görüntüleme sırası
+- Aktif/pasif kayıtlar ve görüntüleme sırası
 - Öne çıkan SSS etiketi
 - Yeni / güncellendi etiketi
-- Doğrudan soru bağlantısı (`/sss/#...`)
+- Doğrudan soru bağlantıları (`/sss/#...`)
 - İsteğe bağlı liste filtreleme
 - Tümünü aç / tümünü kapat
 - Tek cevap veya birden fazla cevap açık tutma seçeneği
 - Public navigasyonda SSS sekmesi
 - Kullanıcı grubu görüntüleme izni
 - Ayrı ACP yönetici izni
-- ACP seçenekleri üzerinden sayfa başlığı/açıklaması ve davranış kontrolü
+- ACP seçeneklerinden sayfa başlığı/açıklaması ve davranış kontrolü
+- XenForo dosya sağlık kontrolü için release paketinde `hashes.json`
+
+## Gereksinimler
+- XenForo 2.3.0+
+- PHP 8.0+
 
 ## Sürümler
-
 ### 1.0.0
 Temel add-on, veritabanı, entity/repository, public route ve ilk SSS görünümü.
 
@@ -34,9 +37,8 @@ ACP kategori ve SSS yönetimi, editör, filtreleme ve yönetici izinleri.
 ### 1.0.2
 SSS sayfa ayarları, public navigasyon, tekli/çoklu açılma, permalink görünürlüğü ve yeni/güncellendi etiketleri.
 
-## Gereksinimler
-- XenForo 2.3.0+
-- PHP 8.0+
+### 1.0.3
+Final doğrulama, veritabanı erişim düzeltmesi, otomatik PHP/XML/JSON kontrolü ve GitHub Releases için doğrudan kurulabilir XenForo ZIP üretimi.
 
 ## Kurulum
-Nihai sürümde GitHub Releases bölümündeki ZIP dosyasını XenForo ACP > Add-ons > Install/upgrade from archive alanından yükleyin.
+GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.0.3.zip` dosyasını XenForo ACP > Add-ons > Install/upgrade from archive alanından yükleyin.

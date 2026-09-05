@@ -1,0 +1,18 @@
+{
+    "title": "Warext Studios | XenForo S.S.S. Sistemi",
+    "description": "XenForo forumları için kategori tabanlı, varsayılan tema ile uyumlu Sıkça Sorulan Sorular sistemi.",
+    "version_id": 1000000,
+    "version_string": "1.0.0",
+    "dev": "Warext Studios",
+    "require": {
+        "XF": [
+            2030000,
+            "XenForo 2.3.0+"
+        ],
+        "php": [
+            "8.0.0",
+            "PHP 8.0.0+"
+        ]
+    },
+    "icon": "fa-circle-question"
+}

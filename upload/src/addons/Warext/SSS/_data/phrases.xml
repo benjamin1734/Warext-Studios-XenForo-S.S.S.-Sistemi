@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="permission_group_wrxtSss" version_id="1000000" version_string="1.0.0"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
+  <phrase title="permission_wrxtSss_view" version_id="1000000" version_string="1.0.0"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
+  <phrase title="wrxt_sss_title" version_id="1000000" version_string="1.0.0"><![CDATA[Sıkça Sorulan Sorular]]></phrase>
+  <phrase title="wrxt_sss_description" version_id="1000000" version_string="1.0.0"><![CDATA[Forum hakkında en sık sorulan soruların cevaplarına buradan ulaşabilirsiniz.]]></phrase>
+  <phrase title="wrxt_sss_empty" version_id="1000000" version_string="1.0.0"><![CDATA[Henüz yayınlanmış bir SSS bulunmuyor.]]></phrase>
+</phrases>

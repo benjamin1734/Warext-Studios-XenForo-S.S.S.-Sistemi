@@ -13,7 +13,16 @@ XenForo 2.3+ için, varsayılan tema ile uyumlu kategori tabanlı Sıkça Sorula
 - Widget ve navigasyon entegrasyonu
 
 ## Geliştirme durumu
-Proje aktif olarak geliştirilmektedir.
 
-### v1.0.0 / Adım 1
-Temel eklenti iskeleti, veritabanı, entity/repository katmanı ve `/sss/` public rotası hazırlanıyor.
+### v1.0.0 / Adım 1 - Tamamlandı
+- XenForo add-on iskeleti
+- `xf_wrxt_sss_category` ve `xf_wrxt_sss_faq` tabloları
+- Category / Faq entity yapıları
+- Category / Faq repository yapıları
+- `/sss/` public route
+- SSS görüntüleme izni
+- XenForo default tema tabanlı ilk çalışan SSS görünümü
+- BBCode cevap render altyapısı
+
+### Sonraki adım
+ACP üzerinden kategori ve soru/cevap CRUD yönetimi, sıralama ve editör entegrasyonu.

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<templates>
+  <template type="public" title="wrxt_sss_index" version_id="1000000" version_string="1.0.0"><![CDATA[<xf:title>{{ phrase('wrxt_sss_title') }}</xf:title>
+<xf:css src="wrxt_sss.less" />
+
+<div class="block">
+    <div class="block-container">
+        <div class="block-body">
+            <div class="block-row">
+                <div class="contentRow">
+                    <div class="contentRow-main">
+                        <h1 class="contentRow-title">{{ phrase('wrxt_sss_title') }}</h1>
+                        <div class="contentRow-minor">{{ phrase('wrxt_sss_description') }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<xf:if is="$groups is not empty">
+    <xf:foreach loop="$groups" value="$group">
+        <div class="block wrxtSss-category">
+            <div class="block-container">
+                <h2 class="block-header">
+                    <xf:if is="$group.category.icon"><i class="fa--xf far {$group.category.icon}" aria-hidden="true"></i></xf:if>
+                    {$group.category.title}
+                </h2>
+                <xf:if is="$group.category.description">
+                    <div class="block-row block-row--minor">{$group.category.description}</div>
+                </xf:if>
+                <div class="block-body">
+                    <xf:foreach loop="$group.faqs" value="$faq">
+                        <details class="wrxtSss-item" id="{$faq.anchor}">
+                            <summary class="block-row wrxtSss-question">
+                                <span>{$faq.question}</span>
+                                <xf:if is="$faq.is_featured"><span class="label label--primary">Öne çıkan</span></xf:if>
+                            </summary>
+                            <div class="block-row block-row--separated wrxtSss-answer">
+                                <div class="bbWrapper">{{ bb_code($faq.answer, 'wrxt_sss', $faq) }}</div>
+                            </div>
+                        </details>
+                    </xf:foreach>
+                </div>
+            </div>
+        </div>
+    </xf:foreach>
+<xf:else />
+    <div class="block">
+        <div class="block-container">
+            <div class="block-body">
+                <div class="block-row">{{ phrase('wrxt_sss_empty') }}</div>
+            </div>
+        </div>
+    </div>
+</xf:if>]]></template>
+
+  <template type="public" title="wrxt_sss.less" version_id="1000000" version_string="1.0.0"><![CDATA[
+.wrxtSss-category .block-header .fa { margin-right: @xf-paddingSmall; }
+.wrxtSss-item { border-top: 1px solid @xf-borderColorLight; }
+.wrxtSss-item:first-child { border-top: 0; }
+.wrxtSss-question { cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: @xf-paddingMedium; font-weight: 600; }
+.wrxtSss-question::marker { color: @xf-textColorMuted; }
+.wrxtSss-answer { background: @xf-contentAltBg; }
+.wrxtSss-answer .bbWrapper > :first-child { margin-top: 0; }
+.wrxtSss-answer .bbWrapper > :last-child { margin-bottom: 0; }
+]]></template>
+</templates>

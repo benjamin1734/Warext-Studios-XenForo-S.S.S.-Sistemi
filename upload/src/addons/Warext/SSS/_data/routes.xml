@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <routes>
   <route route_type="public" route_prefix="sss" controller="Warext\SSS:Sss"/>
+  <route route_type="admin" route_prefix="wrxt-sss-kategoriler" controller="Warext\SSS:Category" context="wrxtSssCategories"/>
+  <route route_type="admin" route_prefix="wrxt-sss-sorular" controller="Warext\SSS:Faq" context="wrxtSssFaqs"/>
 </routes>

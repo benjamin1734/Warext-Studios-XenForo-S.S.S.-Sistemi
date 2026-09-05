@@ -1,8 +1,8 @@
 {
     "title": "Warext Studios | XenForo S.S.S. Sistemi",
     "description": "XenForo forumları için kategori tabanlı, varsayılan tema ile uyumlu Sıkça Sorulan Sorular sistemi.",
-    "version_id": 1000000,
-    "version_string": "1.0.0",
+    "version_id": 1000100,
+    "version_string": "1.0.1",
     "dev": "Warext Studios",
     "require": {
         "XF": [

@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phrases>
-  <phrase title="permission_group_wrxtSss" version_id="1000000" version_string="1.0.0"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
-  <phrase title="permission_wrxtSss_view" version_id="1000000" version_string="1.0.0"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
-  <phrase title="wrxt_sss_title" version_id="1000000" version_string="1.0.0"><![CDATA[Sıkça Sorulan Sorular]]></phrase>
-  <phrase title="wrxt_sss_description" version_id="1000000" version_string="1.0.0"><![CDATA[Forum hakkında en sık sorulan soruların cevaplarına buradan ulaşabilirsiniz.]]></phrase>
-  <phrase title="wrxt_sss_empty" version_id="1000000" version_string="1.0.0"><![CDATA[Henüz yayınlanmış bir SSS bulunmuyor.]]></phrase>
+  <phrase title="permission_group_wrxtSss" version_id="1000100" version_string="1.0.1"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
+  <phrase title="permission_wrxtSss_view" version_id="1000100" version_string="1.0.1"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
+  <phrase title="admin_permission_wrxtSssManage" version_id="1000100" version_string="1.0.1"><![CDATA[SSS sistemini yönet]]></phrase>
+  <phrase title="admin_navigation.wrxtSssCategories" version_id="1000100" version_string="1.0.1"><![CDATA[SSS Kategorileri]]></phrase>
+  <phrase title="admin_navigation.wrxtSssFaqs" version_id="1000100" version_string="1.0.1"><![CDATA[SSS Soruları]]></phrase>
+  <phrase title="wrxt_sss_title" version_id="1000100" version_string="1.0.1"><![CDATA[Sıkça Sorulan Sorular]]></phrase>
+  <phrase title="wrxt_sss_description" version_id="1000100" version_string="1.0.1"><![CDATA[Forum hakkında en sık sorulan soruların cevaplarına buradan ulaşabilirsiniz.]]></phrase>
+  <phrase title="wrxt_sss_empty" version_id="1000100" version_string="1.0.1"><![CDATA[Henüz yayınlanmış bir SSS bulunmuyor.]]></phrase>
+  <phrase title="wrxt_sss_search_placeholder" version_id="1000100" version_string="1.0.1"><![CDATA[SSS içinde ara...]]></phrase>
+  <phrase title="wrxt_sss_open_all" version_id="1000100" version_string="1.0.1"><![CDATA[Tümünü aç]]></phrase>
+  <phrase title="wrxt_sss_close_all" version_id="1000100" version_string="1.0.1"><![CDATA[Tümünü kapat]]></phrase>
 </phrases>

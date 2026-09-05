@@ -42,10 +42,29 @@ class Sss extends AbstractController
             ];
         }
 
+        $options = \XF::options();
+        $pageTitle = trim((string)$options->wrxtSssPageTitle);
+        $pageDescription = trim((string)$options->wrxtSssPageDescription);
+        $badgeDays = max(0, (int)$options->wrxtSssBadgeDays);
+
+        if ($pageTitle === '')
+        {
+            $pageTitle = (string)\XF::phrase('wrxt_sss_title');
+        }
+        if ($pageDescription === '')
+        {
+            $pageDescription = (string)\XF::phrase('wrxt_sss_description');
+        }
+
         return $this->view(
             'Warext\SSS:SssIndex',
             'wrxt_sss_index',
-            ['groups' => $groups]
+            [
+                'groups' => $groups,
+                'pageTitle' => $pageTitle,
+                'pageDescription' => $pageDescription,
+                'badgeCutoff' => $badgeDays > 0 ? \XF::$time - ($badgeDays * 86400) : 0
+            ]
         );
     }
 }

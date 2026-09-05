@@ -1,27 +1,34 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <templates>
-  <template type="public" title="wrxt_sss_index" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title>{{ phrase('wrxt_sss_title') }}</xf:title>
+  <template type="public" title="wrxt_sss_index" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title>{$pageTitle}</xf:title>
+<xf:page option="section">wrxtSss</xf:page>
 <xf:css src="wrxt_sss.less" />
 
-<div data-wrxt-sss-root="1">
+<div data-wrxt-sss-root="1" data-exclusive="{$xf.options.wrxtSssExclusiveOpen}">
     <div class="block">
         <div class="block-container">
             <div class="block-body">
                 <div class="block-row">
                     <div class="contentRow">
                         <div class="contentRow-main">
-                            <h1 class="contentRow-title">{{ phrase('wrxt_sss_title') }}</h1>
-                            <div class="contentRow-minor">{{ phrase('wrxt_sss_description') }}</div>
+                            <h1 class="contentRow-title">{$pageTitle}</h1>
+                            <xf:if is="$pageDescription"><div class="contentRow-minor">{$pageDescription}</div></xf:if>
                         </div>
                     </div>
                 </div>
-                <div class="block-row wrxtSss-tools">
-                    <input class="input" type="search" data-wrxt-sss-search="1" placeholder="{{ phrase('wrxt_sss_search_placeholder') }}" autocomplete="off" />
-                    <div class="buttonGroup">
-                        <button type="button" class="button button--link" data-wrxt-sss-open="1">{{ phrase('wrxt_sss_open_all') }}</button>
-                        <button type="button" class="button button--link" data-wrxt-sss-close="1">{{ phrase('wrxt_sss_close_all') }}</button>
+                <xf:if is="$xf.options.wrxtSssSearchEnabled || $xf.options.wrxtSssOpenCloseButtons">
+                    <div class="block-row wrxtSss-tools">
+                        <xf:if is="$xf.options.wrxtSssSearchEnabled">
+                            <input class="input" type="search" data-wrxt-sss-search="1" placeholder="{{ phrase('wrxt_sss_search_placeholder') }}" autocomplete="off" />
+                        <xf:else /><span></span></xf:if>
+                        <xf:if is="$xf.options.wrxtSssOpenCloseButtons">
+                            <div class="buttonGroup">
+                                <button type="button" class="button button--link" data-wrxt-sss-open="1">{{ phrase('wrxt_sss_open_all') }}</button>
+                                <button type="button" class="button button--link" data-wrxt-sss-close="1">{{ phrase('wrxt_sss_close_all') }}</button>
+                            </div>
+                        </xf:if>
                     </div>
-                </div>
+                </xf:if>
             </div>
         </div>
     </div>
@@ -34,19 +41,24 @@
                         <xf:if is="$group.category.icon"><i class="fa--xf far {$group.category.icon}" aria-hidden="true"></i></xf:if>
                         {$group.category.title}
                     </h2>
-                    <xf:if is="$group.category.description">
-                        <div class="block-row block-row--minor">{$group.category.description}</div>
-                    </xf:if>
+                    <xf:if is="$group.category.description"><div class="block-row block-row--minor">{$group.category.description}</div></xf:if>
                     <div class="block-body">
                         <xf:foreach loop="$group.faqs" value="$faq">
                             <details class="wrxtSss-item" id="{$faq.anchor}" data-wrxt-sss-item="1">
                                 <summary class="block-row wrxtSss-question">
                                     <span>{$faq.question}</span>
-                                    <xf:if is="$faq.is_featured"><span class="label label--primary">Öne çıkan</span></xf:if>
+                                    <span class="wrxtSss-labels">
+                                        <xf:if is="$faq.is_featured"><span class="label label--primary">Öne çıkan</span></xf:if>
+                                        <xf:if is="$badgeCutoff && $faq.created_date >= $badgeCutoff">
+                                            <span class="label label--green">Yeni</span>
+                                        <xf:elseif is="$badgeCutoff && $faq.updated_date >= $badgeCutoff && $faq.updated_date > $faq.created_date" />
+                                            <span class="label label--accent">Güncellendi</span>
+                                        </xf:if>
+                                    </span>
                                 </summary>
                                 <div class="block-row block-row--separated wrxtSss-answer">
                                     <div class="bbWrapper">{{ bb_code($faq.answer, 'wrxt_sss', $faq) }}</div>
-                                    <div class="wrxtSss-permalink"><a href="#{$faq.anchor}">Doğrudan bağlantı</a></div>
+                                    <xf:if is="$xf.options.wrxtSssShowPermalinks"><div class="wrxtSss-permalink"><a href="#{$faq.anchor}">Doğrudan bağlantı</a></div></xf:if>
                                 </div>
                             </details>
                         </xf:foreach>
@@ -54,9 +66,7 @@
                 </div>
             </div>
         </xf:foreach>
-        <div class="block" data-wrxt-sss-no-results="1" hidden>
-            <div class="block-container"><div class="block-body"><div class="block-row">Aramanızla eşleşen bir SSS bulunamadı.</div></div></div>
-        </div>
+        <div class="block" data-wrxt-sss-no-results="1" hidden><div class="block-container"><div class="block-body"><div class="block-row">Aramanızla eşleşen bir SSS bulunamadı.</div></div></div></div>
     <xf:else />
         <div class="block"><div class="block-container"><div class="block-body"><div class="block-row">{{ phrase('wrxt_sss_empty') }}</div></div></div></div>
     </xf:if>
@@ -70,12 +80,14 @@
     const categories = [...root.querySelectorAll('[data-wrxt-sss-category="1"]')]
     const search = root.querySelector('[data-wrxt-sss-search="1"]')
     const noResults = root.querySelector('[data-wrxt-sss-no-results="1"]')
+    const exclusive = root.dataset.exclusive === '1'
 
     const openHash = () => {
         if (!location.hash) return
         const id = decodeURIComponent(location.hash.slice(1))
         const target = document.getElementById(id)
         if (target && target.matches('details')) {
+            if (exclusive) items.forEach(x => { if (x !== target) x.open = false })
             target.open = true
             requestAnimationFrame(() => target.scrollIntoView({block: 'center'}))
         }
@@ -89,21 +101,27 @@
             item.hidden = !show
             if (show) visible++
         })
-        categories.forEach(category => {
-            category.hidden = !category.querySelector('[data-wrxt-sss-item="1"]:not([hidden])')
-        })
+        categories.forEach(category => { category.hidden = !category.querySelector('[data-wrxt-sss-item="1"]:not([hidden])') })
         if (noResults) noResults.hidden = visible !== 0
     }
 
+    if (exclusive) {
+        items.forEach(item => item.addEventListener('toggle', () => {
+            if (item.open) items.forEach(other => { if (other !== item) other.open = false })
+        }))
+    }
     search?.addEventListener('input', filter)
-    root.querySelector('[data-wrxt-sss-open="1"]')?.addEventListener('click', () => items.filter(x => !x.hidden).forEach(x => x.open = true))
+    root.querySelector('[data-wrxt-sss-open="1"]')?.addEventListener('click', () => {
+        if (exclusive) { const first = items.find(x => !x.hidden); if (first) first.open = true }
+        else items.filter(x => !x.hidden).forEach(x => x.open = true)
+    })
     root.querySelector('[data-wrxt-sss-close="1"]')?.addEventListener('click', () => items.forEach(x => x.open = false))
     window.addEventListener('hashchange', openHash)
     openHash()
 })()
 </xf:js>]]></template>
 
-  <template type="public" title="wrxt_sss.less" version_id="1000100" version_string="1.0.1"><![CDATA[
+  <template type="public" title="wrxt_sss.less" version_id="1000200" version_string="1.0.2"><![CDATA[
 .wrxtSss-tools { display:flex; gap:@xf-paddingMedium; align-items:center; justify-content:space-between; }
 .wrxtSss-tools .input { max-width:520px; }
 .wrxtSss-category .block-header .fa { margin-right:@xf-paddingSmall; }
@@ -111,64 +129,27 @@
 .wrxtSss-item:first-child { border-top:0; }
 .wrxtSss-question { cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:@xf-paddingMedium; font-weight:600; }
 .wrxtSss-question::marker { color:@xf-textColorMuted; }
+.wrxtSss-labels { display:inline-flex; flex-wrap:wrap; gap:4px; justify-content:flex-end; }
 .wrxtSss-answer { background:@xf-contentAltBg; }
 .wrxtSss-answer .bbWrapper > :first-child { margin-top:0; }
 .wrxtSss-answer .bbWrapper > :last-child { margin-bottom:0; }
 .wrxtSss-permalink { margin-top:@xf-paddingMedium; font-size:@xf-fontSizeSmaller; }
-@media (max-width:@xf-responsiveMedium) { .wrxtSss-tools { align-items:stretch; flex-direction:column; } .wrxtSss-tools .input { max-width:none; } }
+@media (max-width:@xf-responsiveMedium) { .wrxtSss-tools { align-items:stretch; flex-direction:column; } .wrxtSss-tools .input { max-width:none; } .wrxtSss-question { align-items:flex-start; } }
 ]]></template>
 
-  <template type="admin" title="wrxt_sss_admin_category_list" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title>SSS Kategorileri</xf:title>
-<xf:pageaction><xf:button href="{{ link('wrxt-sss-kategoriler/add') }}" icon="add">Kategori ekle</xf:button><xf:button href="{{ link('wrxt-sss-sorular') }}">SSS Soruları</xf:button></xf:pageaction>
+  <template type="admin" title="wrxt_sss_admin_category_list" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title>SSS Kategorileri</xf:title>
+<xf:pageaction><xf:button href="{{ link('wrxt-sss-kategoriler/add') }}" icon="add">Kategori ekle</xf:button><xf:button href="{{ link('wrxt-sss-sorular') }}">SSS Soruları</xf:button><xf:button href="{{ link('options/groups/wrxtSssSettings') }}" icon="cog">Ayarlar</xf:button></xf:pageaction>
 <div class="block"><div class="block-container"><div class="block-body">
-<xf:if is="$categories is not empty">
-<xf:datalist data-xf-init="responsive-datalist">
-<xf:datarow rowtype="header"><xf:cell>Kategori</xf:cell><xf:cell>Sıra</xf:cell><xf:cell>Soru</xf:cell><xf:cell>Durum</xf:cell><xf:cell></xf:cell></xf:datarow>
-<xf:foreach loop="$categories" value="$category">
-<xf:datarow>
-<xf:main><a href="{{ link('wrxt-sss-kategoriler/edit', null, {'category_id': $category.category_id}) }}"><strong>{$category.title}</strong></a><xf:explain>{$category.description}</xf:explain></xf:main>
-<xf:cell>{$category.display_order}</xf:cell>
-<xf:cell>{{ $faqCounts[$category.category_id] ?: 0 }}</xf:cell>
-<xf:cell><xf:if is="$category.is_active"><span class="label label--green">Aktif</span><xf:else /><span class="label">Pasif</span></xf:if></xf:cell>
-<xf:action href="{{ link('wrxt-sss-kategoriler/edit', null, {'category_id': $category.category_id}) }}">Düzenle</xf:action>
-<xf:action href="{{ link('wrxt-sss-kategoriler/delete', null, {'category_id': $category.category_id}) }}">Sil</xf:action>
-</xf:datarow>
-</xf:foreach>
-</xf:datalist>
-<xf:else /><div class="block-row">Henüz SSS kategorisi oluşturulmamış.</div></xf:if>
+<xf:if is="$categories is not empty"><xf:datalist data-xf-init="responsive-datalist"><xf:datarow rowtype="header"><xf:cell>Kategori</xf:cell><xf:cell>Sıra</xf:cell><xf:cell>Soru</xf:cell><xf:cell>Durum</xf:cell><xf:cell></xf:cell></xf:datarow><xf:foreach loop="$categories" value="$category"><xf:datarow><xf:main><a href="{{ link('wrxt-sss-kategoriler/edit', null, {'category_id': $category.category_id}) }}"><strong>{$category.title}</strong></a><xf:explain>{$category.description}</xf:explain></xf:main><xf:cell>{$category.display_order}</xf:cell><xf:cell>{{ $faqCounts[$category.category_id] ?: 0 }}</xf:cell><xf:cell><xf:if is="$category.is_active"><span class="label label--green">Aktif</span><xf:else /><span class="label">Pasif</span></xf:if></xf:cell><xf:action href="{{ link('wrxt-sss-kategoriler/edit', null, {'category_id': $category.category_id}) }}">Düzenle</xf:action><xf:action href="{{ link('wrxt-sss-kategoriler/delete', null, {'category_id': $category.category_id}) }}">Sil</xf:action></xf:datarow></xf:foreach></xf:datalist><xf:else /><div class="block-row">Henüz SSS kategorisi oluşturulmamış.</div></xf:if>
 </div></div></div>]]></template>
 
-  <template type="admin" title="wrxt_sss_admin_category_edit" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title><xf:if is="$category.exists">SSS Kategorisini Düzenle<xf:else />SSS Kategorisi Ekle</xf:if></xf:title>
-<xf:form action="{{ link('wrxt-sss-kategoriler/save') }}" ajax="true" class="block"><div class="block-container"><div class="block-body">
-<xf:hiddenval name="category_id" value="{$category.category_id}" />
-<xf:textboxrow name="title" value="{$category.title}" maxlength="100" label="Kategori adı" required="true" />
-<xf:textboxrow name="description" value="{$category.description}" maxlength="255" label="Açıklama" />
-<xf:textboxrow name="icon" value="{$category.icon}" maxlength="64" label="Font Awesome ikonu" explain="Örnek: fa-circle-question. Boş bırakabilirsiniz." />
-<xf:numberboxrow name="display_order" value="{$category.display_order}" min="0" label="Görüntüleme sırası" />
-<xf:checkboxrow><xf:option name="is_active" selected="$category.is_active">Kategori aktif</xf:option></xf:checkboxrow>
-</div><xf:submitrow submit="Kaydet" /></div></xf:form>]]></template>
+  <template type="admin" title="wrxt_sss_admin_category_edit" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title><xf:if is="$category.exists">SSS Kategorisini Düzenle<xf:else />SSS Kategorisi Ekle</xf:if></xf:title><xf:form action="{{ link('wrxt-sss-kategoriler/save') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="category_id" value="{$category.category_id}" /><xf:textboxrow name="title" value="{$category.title}" maxlength="100" label="Kategori adı" required="true" /><xf:textboxrow name="description" value="{$category.description}" maxlength="255" label="Açıklama" /><xf:textboxrow name="icon" value="{$category.icon}" maxlength="64" label="Font Awesome ikonu" explain="Örnek: fa-circle-question. Boş bırakabilirsiniz." /><xf:numberboxrow name="display_order" value="{$category.display_order}" min="0" label="Görüntüleme sırası" /><xf:checkboxrow><xf:option name="is_active" selected="$category.is_active">Kategori aktif</xf:option></xf:checkboxrow></div><xf:submitrow submit="Kaydet" /></div></xf:form>]]></template>
 
-  <template type="admin" title="wrxt_sss_admin_category_delete" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title>SSS Kategorisini Sil</xf:title>
-<xf:form action="{{ link('wrxt-sss-kategoriler/delete') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="category_id" value="{$category.category_id}" /><div class="block-row">“<strong>{$category.title}</strong>” kategorisini silmek istediğinizden emin misiniz?<xf:if is="$faqCount"><br /><br /><span class="u-muted">Bu kategoriyle birlikte {$faqCount} SSS kaydı da silinecek.</span></xf:if></div></div><xf:submitrow submit="Sil" rowtype="simple" /></div></xf:form>]]></template>
+  <template type="admin" title="wrxt_sss_admin_category_delete" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title>SSS Kategorisini Sil</xf:title><xf:form action="{{ link('wrxt-sss-kategoriler/delete') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="category_id" value="{$category.category_id}" /><div class="block-row">“<strong>{$category.title}</strong>” kategorisini silmek istediğinizden emin misiniz?<xf:if is="$faqCount"><br /><br /><span class="u-muted">Bu kategoriyle birlikte {$faqCount} SSS kaydı da silinecek.</span></xf:if></div></div><xf:submitrow submit="Sil" rowtype="simple" /></div></xf:form>]]></template>
 
-  <template type="admin" title="wrxt_sss_admin_faq_list" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title>SSS Soruları</xf:title>
-<xf:pageaction><xf:button href="{{ link('wrxt-sss-sorular/add') }}" icon="add">Soru ekle</xf:button><xf:button href="{{ link('wrxt-sss-kategoriler') }}">Kategoriler</xf:button></xf:pageaction>
-<xf:form action="{{ link('wrxt-sss-sorular') }}" method="get" class="block"><div class="block-container"><div class="block-body"><xf:selectrow name="category_id" value="{$categoryId}" label="Kategori"><xf:option value="">Tüm kategoriler</xf:option><xf:foreach loop="$categories" value="$category"><xf:option value="{$category.category_id}">{$category.title}</xf:option></xf:foreach></xf:selectrow></div><xf:submitrow submit="Filtrele" /></div></xf:form>
-<div class="block"><div class="block-container"><div class="block-body">
-<xf:if is="$faqs is not empty"><xf:datalist data-xf-init="responsive-datalist"><xf:datarow rowtype="header"><xf:cell>Soru</xf:cell><xf:cell>Kategori</xf:cell><xf:cell>Sıra</xf:cell><xf:cell>Durum</xf:cell><xf:cell></xf:cell></xf:datarow>
-<xf:foreach loop="$faqs" value="$faq"><xf:datarow><xf:main><a href="{{ link('wrxt-sss-sorular/edit', null, {'faq_id': $faq.faq_id}) }}"><strong>{$faq.question}</strong></a><xf:explain>/sss/#{$faq.anchor}</xf:explain></xf:main><xf:cell>{$faq.Category.title}</xf:cell><xf:cell>{$faq.display_order}</xf:cell><xf:cell><xf:if is="$faq.is_active"><span class="label label--green">Aktif</span><xf:else /><span class="label">Pasif</span></xf:if><xf:if is="$faq.is_featured"> <span class="label label--primary">Öne çıkan</span></xf:if></xf:cell><xf:action href="{{ link('wrxt-sss-sorular/edit', null, {'faq_id': $faq.faq_id}) }}">Düzenle</xf:action><xf:action href="{{ link('wrxt-sss-sorular/delete', null, {'faq_id': $faq.faq_id}) }}">Sil</xf:action></xf:datarow></xf:foreach></xf:datalist><xf:else /><div class="block-row">Bu filtreye uygun SSS kaydı bulunmuyor.</div></xf:if>
-</div></div></div>]]></template>
+  <template type="admin" title="wrxt_sss_admin_faq_list" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title>SSS Soruları</xf:title><xf:pageaction><xf:button href="{{ link('wrxt-sss-sorular/add') }}" icon="add">Soru ekle</xf:button><xf:button href="{{ link('wrxt-sss-kategoriler') }}">Kategoriler</xf:button><xf:button href="{{ link('options/groups/wrxtSssSettings') }}" icon="cog">Ayarlar</xf:button></xf:pageaction><xf:form action="{{ link('wrxt-sss-sorular') }}" method="get" class="block"><div class="block-container"><div class="block-body"><xf:selectrow name="category_id" value="{$categoryId}" label="Kategori"><xf:option value="">Tüm kategoriler</xf:option><xf:foreach loop="$categories" value="$category"><xf:option value="{$category.category_id}">{$category.title}</xf:option></xf:foreach></xf:selectrow></div><xf:submitrow submit="Filtrele" /></div></xf:form><div class="block"><div class="block-container"><div class="block-body"><xf:if is="$faqs is not empty"><xf:datalist data-xf-init="responsive-datalist"><xf:datarow rowtype="header"><xf:cell>Soru</xf:cell><xf:cell>Kategori</xf:cell><xf:cell>Sıra</xf:cell><xf:cell>Durum</xf:cell><xf:cell></xf:cell></xf:datarow><xf:foreach loop="$faqs" value="$faq"><xf:datarow><xf:main><a href="{{ link('wrxt-sss-sorular/edit', null, {'faq_id': $faq.faq_id}) }}"><strong>{$faq.question}</strong></a><xf:explain>/sss/#{$faq.anchor}</xf:explain></xf:main><xf:cell>{$faq.Category.title}</xf:cell><xf:cell>{$faq.display_order}</xf:cell><xf:cell><xf:if is="$faq.is_active"><span class="label label--green">Aktif</span><xf:else /><span class="label">Pasif</span></xf:if><xf:if is="$faq.is_featured"> <span class="label label--primary">Öne çıkan</span></xf:if></xf:cell><xf:action href="{{ link('wrxt-sss-sorular/edit', null, {'faq_id': $faq.faq_id}) }}">Düzenle</xf:action><xf:action href="{{ link('wrxt-sss-sorular/delete', null, {'faq_id': $faq.faq_id}) }}">Sil</xf:action></xf:datarow></xf:foreach></xf:datalist><xf:else /><div class="block-row">Bu filtreye uygun SSS kaydı bulunmuyor.</div></xf:if></div></div></div>]]></template>
 
-  <template type="admin" title="wrxt_sss_admin_faq_edit" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title><xf:if is="$faq.exists">SSS Kaydını Düzenle<xf:else />SSS Kaydı Ekle</xf:if></xf:title>
-<xf:form action="{{ link('wrxt-sss-sorular/save') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="faq_id" value="{$faq.faq_id}" />
-<xf:selectrow name="category_id" value="{$faq.category_id}" label="Kategori" required="true"><xf:foreach loop="$categories" value="$category"><xf:option value="{$category.category_id}">{$category.title}</xf:option></xf:foreach></xf:selectrow>
-<xf:textboxrow name="question" value="{$faq.question}" maxlength="255" label="Soru" required="true" />
-<xf:editorrow name="answer" value="{$faq.answer}" label="Cevap" rowtype="fullWidth noLabel" />
-<xf:textboxrow name="anchor" value="{$faq.anchor}" maxlength="100" label="Doğrudan bağlantı anahtarı" explain="Boş bırakırsanız otomatik oluşturulur. Örnek: kullanici-adi-degistirme" />
-<xf:numberboxrow name="display_order" value="{$faq.display_order}" min="0" label="Görüntüleme sırası" />
-<xf:checkboxrow><xf:option name="is_active" selected="$faq.is_active">SSS kaydı aktif</xf:option><xf:option name="is_featured" selected="$faq.is_featured">Öne çıkan olarak işaretle</xf:option></xf:checkboxrow>
-</div><xf:submitrow submit="Kaydet" /></div></xf:form>]]></template>
+  <template type="admin" title="wrxt_sss_admin_faq_edit" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title><xf:if is="$faq.exists">SSS Kaydını Düzenle<xf:else />SSS Kaydı Ekle</xf:if></xf:title><xf:form action="{{ link('wrxt-sss-sorular/save') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="faq_id" value="{$faq.faq_id}" /><xf:selectrow name="category_id" value="{$faq.category_id}" label="Kategori" required="true"><xf:foreach loop="$categories" value="$category"><xf:option value="{$category.category_id}">{$category.title}</xf:option></xf:foreach></xf:selectrow><xf:textboxrow name="question" value="{$faq.question}" maxlength="255" label="Soru" required="true" /><xf:editorrow name="answer" value="{$faq.answer}" label="Cevap" /><xf:textboxrow name="anchor" value="{$faq.anchor}" maxlength="100" label="Doğrudan bağlantı anahtarı" explain="Boş bırakırsanız otomatik oluşturulur. Örnek: kullanici-adi-degistirme" /><xf:numberboxrow name="display_order" value="{$faq.display_order}" min="0" label="Görüntüleme sırası" /><xf:checkboxrow><xf:option name="is_active" selected="$faq.is_active">SSS kaydı aktif</xf:option><xf:option name="is_featured" selected="$faq.is_featured">Öne çıkan olarak işaretle</xf:option></xf:checkboxrow></div><xf:submitrow submit="Kaydet" /></div></xf:form>]]></template>
 
-  <template type="admin" title="wrxt_sss_admin_faq_delete" version_id="1000100" version_string="1.0.1"><![CDATA[<xf:title>SSS Kaydını Sil</xf:title>
-<xf:form action="{{ link('wrxt-sss-sorular/delete') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="faq_id" value="{$faq.faq_id}" /><div class="block-row">“<strong>{$faq.question}</strong>” sorusunu silmek istediğinizden emin misiniz?</div></div><xf:submitrow submit="Sil" rowtype="simple" /></div></xf:form>]]></template>
+  <template type="admin" title="wrxt_sss_admin_faq_delete" version_id="1000200" version_string="1.0.2"><![CDATA[<xf:title>SSS Kaydını Sil</xf:title><xf:form action="{{ link('wrxt-sss-sorular/delete') }}" ajax="true" class="block"><div class="block-container"><div class="block-body"><xf:hiddenval name="faq_id" value="{$faq.faq_id}" /><div class="block-row">“<strong>{$faq.question}</strong>” sorusunu silmek istediğinizden emin misiniz?</div></div><xf:submitrow submit="Sil" rowtype="simple" /></div></xf:form>]]></template>
 </templates>

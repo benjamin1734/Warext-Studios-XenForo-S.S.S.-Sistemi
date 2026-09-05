@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation>
+  <navigation_entry navigation_id="wrxtSss" display_order="650" navigation_type_id="basic" enabled="1"><![CDATA[{"link":"{{ link('sss') }}","display_condition":"$xf.visitor->hasPermission('wrxtSss', 'view')","extra_attributes":[]}]]></navigation_entry>
+</navigation>

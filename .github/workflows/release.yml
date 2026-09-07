@@ -25,6 +25,19 @@ jobs:
           set -euo pipefail
           find upload/src/addons/Warext/SSS -type f -name '*.php' -print0 | xargs -0 -n1 php -l
 
+      - name: Validate XenForo 2.3 API usage
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -R -n --include='*.php' -- '->isChanged()' upload/src/addons/Warext/SSS; then
+            echo 'Forbidden parameterless isChanged() call detected.' >&2
+            exit 1
+          fi
+          grep -Fq "fromInput('answer')" upload/src/addons/Warext/SSS/Admin/Controller/Faq.php || {
+            echo 'FAQ rich editor input is not captured through EditorPlugin::fromInput().' >&2
+            exit 1
+          }
+
       - name: Validate XML and JSON
         shell: bash
         run: |

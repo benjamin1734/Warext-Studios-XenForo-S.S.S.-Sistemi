@@ -38,18 +38,34 @@ class Faq extends Entity
 
     public function getAllowedUserGroupIds(): array
     {
-        if ($this->allowed_user_group_ids === '') { return []; }
+        if ($this->allowed_user_group_ids === '')
+        {
+            return [];
+        }
+
         return array_values(array_unique(array_filter(array_map('intval', explode(',', $this->allowed_user_group_ids)))));
     }
 
     public function canViewFor(\XF\Entity\User $visitor): bool
     {
         $allowed = $this->getAllowedUserGroupIds();
-        if (!$allowed) { return true; }
+        if (!$allowed)
+        {
+            return true;
+        }
+
         $groups = [(int)$visitor->user_group_id];
         $secondary = $visitor->secondary_group_ids;
-        if (is_array($secondary)) { $groups = array_merge($groups, array_map('intval', $secondary)); }
-        elseif (is_string($secondary) && $secondary !== '') { $groups = array_merge($groups, array_map('intval', explode(',', $secondary))); }
+
+        if (is_array($secondary))
+        {
+            $groups = array_merge($groups, array_map('intval', $secondary));
+        }
+        elseif (is_string($secondary) && $secondary !== '')
+        {
+            $groups = array_merge($groups, array_map('intval', explode(',', $secondary)));
+        }
+
         return (bool)array_intersect($allowed, $groups);
     }
 
@@ -62,6 +78,24 @@ class Faq extends Entity
             $slug = substr($slug ?: 'sss', 0, 80);
             $this->anchor = $slug . '-' . bin2hex(random_bytes(3));
         }
-        if ($this->isChanged()) { $this->updated_date = \XF::$time; }
+
+        if (!$this->faq_id)
+        {
+            return;
+        }
+
+        if (
+            $this->isChanged('category_id')
+            || $this->isChanged('question')
+            || $this->isChanged('answer')
+            || $this->isChanged('anchor')
+            || $this->isChanged('allowed_user_group_ids')
+            || $this->isChanged('display_order')
+            || $this->isChanged('is_active')
+            || $this->isChanged('is_featured')
+        )
+        {
+            $this->updated_date = \XF::$time;
+        }
     }
 }

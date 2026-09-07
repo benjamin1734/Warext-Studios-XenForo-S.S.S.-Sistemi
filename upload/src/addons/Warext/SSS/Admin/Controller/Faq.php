@@ -53,30 +53,64 @@ class Faq extends AbstractController
     public function actionSave()
     {
         $this->assertPostOnly();
+
         $faqId = $this->filter('faq_id', 'uint');
         $faq = $faqId ? $this->assertFaqExists($faqId) : $this->em()->create('Warext\SSS:Faq');
+
         $input = $this->filter([
-            'category_id' => 'uint', 'question' => 'str', 'answer' => 'str', 'anchor' => 'str',
-            'display_order' => 'uint', 'is_active' => 'bool', 'is_featured' => 'bool'
+            'category_id' => 'uint',
+            'question' => 'str',
+            'anchor' => 'str',
+            'display_order' => 'uint',
+            'is_active' => 'bool',
+            'is_featured' => 'bool'
         ]);
-        $groups = array_values(array_unique(array_filter($this->filter('allowed_user_group_ids', 'array-uint'))));
-        if (!$this->em()->find('Warext\SSS:Category', $input['category_id'])) { return $this->error('Geçerli bir SSS kategorisi seçmelisiniz.'); }
+
+        $editorPlugin = $this->plugin(\XF\ControllerPlugin\EditorPlugin::class);
+        $answer = trim($editorPlugin->fromInput('answer'));
+
+        $groups = array_values(array_unique(array_filter(
+            $this->filter('allowed_user_group_ids', 'array-uint')
+        )));
+
+        if (!$this->em()->find('Warext\SSS:Category', $input['category_id']))
+        {
+            return $this->error('Geçerli bir SSS kategorisi seçmelisiniz.');
+        }
 
         $input['question'] = trim($input['question']);
-        $input['answer'] = trim($input['answer']);
         $input['anchor'] = trim($input['anchor']);
         $input['allowed_user_group_ids'] = implode(',', $groups);
-        if ($input['question'] === '') { return $this->error('Soru alanı boş bırakılamaz.'); }
-        if ($input['answer'] === '') { return $this->error('Cevap alanı boş bırakılamaz.'); }
+        $input['answer'] = $answer;
+
+        if ($input['question'] === '')
+        {
+            return $this->error('Soru alanı boş bırakılamaz.');
+        }
+        if ($input['answer'] === '')
+        {
+            return $this->error('Cevap alanı boş bırakılamaz.');
+        }
         if ($input['anchor'] !== '' && !preg_match('/^[a-z0-9][a-z0-9-]{0,99}$/', $input['anchor']))
-        { return $this->error('Doğrudan bağlantı anahtarı yalnızca küçük harf, sayı ve tire içerebilir.'); }
+        {
+            return $this->error('Doğrudan bağlantı anahtarı yalnızca küçük harf, sayı ve tire içerebilir.');
+        }
         if ($input['anchor'] !== '')
         {
-            $existing = $this->finder('Warext\SSS:Faq')->where('anchor', $input['anchor'])
-                ->where('faq_id', '<>', (int)$faq->faq_id)->fetchOne();
-            if ($existing) { return $this->error('Bu doğrudan bağlantı anahtarı başka bir SSS kaydında kullanılıyor.'); }
+            $existing = $this->finder('Warext\SSS:Faq')
+                ->where('anchor', $input['anchor'])
+                ->where('faq_id', '<>', (int)$faq->faq_id)
+                ->fetchOne();
+
+            if ($existing)
+            {
+                return $this->error('Bu doğrudan bağlantı anahtarı başka bir SSS kaydında kullanılıyor.');
+            }
         }
-        $faq->bulkSet($input); $faq->save();
+
+        $faq->bulkSet($input);
+        $faq->save();
+
         return $this->redirect($this->buildLink('wrxt-sss-sorular'));
     }
 

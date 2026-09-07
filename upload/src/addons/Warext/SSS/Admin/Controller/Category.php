@@ -24,9 +24,17 @@ class Category extends AbstractController
             'SELECT category_id, COUNT(*) FROM xf_wrxt_sss_faq GROUP BY category_id'
         );
 
+        $categoryRows = [];
+        foreach ($categories as $category)
+        {
+            $categoryRows[] = [
+                'category' => $category,
+                'faqCount' => (int)($faqCounts[$category->category_id] ?? 0)
+            ];
+        }
+
         return $this->view('Warext\SSS:CategoryList', 'wrxt_sss_admin_category_list', [
-            'categories' => $categories,
-            'faqCounts' => $faqCounts
+            'categoryRows' => $categoryRows
         ]);
     }
 

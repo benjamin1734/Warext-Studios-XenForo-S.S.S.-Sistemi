@@ -1,6 +1,6 @@
 # Warext Studios | XenForo S.S.S. Sistemi
 
-**Güncel sürüm: v1.1.3**
+**Güncel sürüm: v1.1.4**
 
 Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlanmış kategori tabanlı bir Sıkça Sorulan Sorular eklentisidir. Kullanıcılar `/sss/` sayfasında soruları görüntüler; bir soruya tıkladığında cevap aynı sayfa üzerinde hemen altında açılır. Tasarım XenForo'nun varsayılan tema yapısını kullanır ve mevcut tema renkleriyle uyumlu çalışır.
 
@@ -9,6 +9,8 @@ Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlan
 - Soruya tıklayınca altında açılan cevaplar
 - XenForo BBCode editörü ile gelişmiş cevap içeriği
 - ACP üzerinden kategori ve soru/cevap yönetimi
+- ACP'de bağımsız Warext S.S.S. Sistemi yönetim ağacı
+- Kategoriler, sorular ve ayarlar için ayrı yönetim bağlantıları
 - Aktif / pasif kayıt yönetimi
 - Sürükle-bırak kategori ve soru sıralama
 - Kategori ve soru bazında kullanıcı grubu görünürlüğü
@@ -28,4 +30,4 @@ Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlan
 - PHP 8.0+
 
 ## Kurulum
-GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.3.zip` dosyasını indirin ve XenForo ACP üzerinden **Add-ons → Install/upgrade from archive** alanına yükleyin.
+GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` dosyasını indirin ve XenForo ACP üzerinden **Add-ons → Install/upgrade from archive** alanına yükleyin.

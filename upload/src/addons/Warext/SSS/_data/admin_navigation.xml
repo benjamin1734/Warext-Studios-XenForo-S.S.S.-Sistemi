@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <admin_navigation>
-  <admin_navigation_entry navigation_id="wrxtSssCategories" parent_navigation_id="content" display_order="950" link="wrxt-sss-kategoriler" icon="fa-folder-tree" admin_permission_id="wrxtSssManage" debug_only="0" development_only="0" hide_no_children="0"/>
-  <admin_navigation_entry navigation_id="wrxtSssFaqs" parent_navigation_id="content" display_order="951" link="wrxt-sss-sorular" icon="fa-circle-question" admin_permission_id="wrxtSssManage" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="wrxtSssRoot" display_order="960" link="wrxt-sss-kategoriler" icon="fa-question-circle" admin_permission_id="wrxtSssManage" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="wrxtSssCategories" parent_navigation_id="wrxtSssRoot" display_order="10" link="wrxt-sss-kategoriler" icon="fa-folder-tree" admin_permission_id="wrxtSssManage" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="wrxtSssFaqs" parent_navigation_id="wrxtSssRoot" display_order="20" link="wrxt-sss-sorular" icon="fa-question-circle" admin_permission_id="wrxtSssManage" debug_only="0" development_only="0" hide_no_children="0"/>
+  <admin_navigation_entry navigation_id="wrxtSssSettings" parent_navigation_id="wrxtSssRoot" display_order="30" link="options/groups/wrxtSssSettings/" icon="fa-cog" admin_permission_id="wrxtSssManage" debug_only="0" development_only="0" hide_no_children="0"/>
 </admin_navigation>

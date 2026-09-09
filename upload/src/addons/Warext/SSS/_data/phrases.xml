@@ -3,8 +3,10 @@
   <phrase title="permission_group_wrxtSss" version_id="1010000" version_string="1.1.0"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
   <phrase title="permission_wrxtSss_view" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
   <phrase title="admin_permission_wrxtSssManage" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sistemini yönet]]></phrase>
+  <phrase title="admin_navigation.wrxtSssRoot" version_id="1010400" version_string="1.1.4"><![CDATA[Warext S.S.S. Sistemi]]></phrase>
   <phrase title="admin_navigation.wrxtSssCategories" version_id="1010000" version_string="1.1.0"><![CDATA[SSS Kategorileri]]></phrase>
   <phrase title="admin_navigation.wrxtSssFaqs" version_id="1010000" version_string="1.1.0"><![CDATA[SSS Soruları]]></phrase>
+  <phrase title="admin_navigation.wrxtSssSettings" version_id="1010400" version_string="1.1.4"><![CDATA[SSS Ayarları]]></phrase>
   <phrase title="nav.wrxtSss" version_id="1010000" version_string="1.1.0"><![CDATA[SSS]]></phrase>
   <phrase title="widget_def.wrxt_sss_faq" version_id="1010000" version_string="1.1.0"><![CDATA[Warext SSS: Sıkça Sorulanlar]]></phrase>
   <phrase title="widget_def_desc.wrxt_sss_faq" version_id="1010000" version_string="1.1.0"><![CDATA[SSS kayıtlarından kısa bir listeyi seçtiğiniz widget konumunda gösterir.]]></phrase>

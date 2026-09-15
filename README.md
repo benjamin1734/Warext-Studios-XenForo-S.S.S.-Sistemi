@@ -31,3 +31,42 @@ Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlan
 
 ## Kurulum
 GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` dosyasını indirin ve XenForo ACP üzerinden **Add-ons → Install/upgrade from archive** alanına yükleyin.
+
+---
+
+# English
+
+**Current version: v1.1.4**
+
+Warext Studios | XenForo FAQ System is a category-based Frequently Asked Questions add-on for XenForo 2.3+ forums. Users browse questions on `/sss/`; clicking a question expands its answer directly below it on the same page. The interface follows XenForo's default style structure and automatically works with the active theme's colors.
+
+## Features
+
+- Category-based FAQ structure
+- Answers expand directly below the selected question
+- Advanced answer content through XenForo's BBCode editor
+- Category and question/answer management from ACP
+- Dedicated Warext FAQ System management tree in ACP
+- Separate management links for categories, questions, and settings
+- Active / inactive record management
+- Drag-and-drop ordering for categories and questions
+- User-group visibility rules per category and per question
+- Featured, New, and Updated labels
+- Direct links to individual questions (`/sss/#...`)
+- Quick filtering across existing FAQ records
+- Expand all / collapse all controls
+- Option to keep either one answer or multiple answers open
+- FAQ tab in public navigation
+- XenForo Widget Manager integration
+- Configurable widget question limit and featured-only display option
+- Separate public-user and administrator permissions
+- ACP settings for page title, description, and behavior
+
+## Requirements
+
+- XenForo 2.3.0+
+- PHP 8.0+
+
+## Installation
+
+Download `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` from GitHub Releases and upload it through XenForo ACP → **Add-ons → Install/upgrade from archive**.

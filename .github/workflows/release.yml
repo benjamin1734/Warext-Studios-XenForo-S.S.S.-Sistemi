@@ -113,11 +113,19 @@ jobs:
           ZIP='${{ steps.version.outputs.zip }}'
           VERSION='${{ steps.version.outputs.version }}'
           TITLE="Warext Studios | XenForo S.S.S. Sistemi v${VERSION}"
-          NOTES="XenForo 2.3+ için kategori tabanlı Sıkça Sorulan Sorular eklentisi. Güncel sürüm: v${VERSION}. ZIP dosyası XenForo ACP > Add-ons > Install/upgrade from archive alanından doğrudan kurulabilir."
+          cat > /tmp/release-notes.md <<EOF
+XenForo 2.3+ için kategori tabanlı Sıkça Sorulan Sorular eklentisi. Güncel sürüm: v${VERSION}. ZIP dosyası XenForo ACP > Add-ons > Install/upgrade from archive alanından doğrudan kurulabilir.
+
+---
+
+## English
+
+A category-based Frequently Asked Questions add-on for XenForo 2.3+. Current version: v${VERSION}. The ZIP file can be installed directly through XenForo ACP > Add-ons > Install/upgrade from archive.
+EOF
 
           if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release edit "$TAG" --title "$TITLE" --notes "$NOTES"
+            gh release edit "$TAG" --title "$TITLE" --notes-file /tmp/release-notes.md
             gh release upload "$TAG" "$ZIP" --clobber
           else
-            gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES"
+            gh release create "$TAG" "$ZIP" --target "$GITHUB_SHA" --title "$TITLE" --notes-file /tmp/release-notes.md
           fi

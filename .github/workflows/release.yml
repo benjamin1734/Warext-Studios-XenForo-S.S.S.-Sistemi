@@ -46,18 +46,12 @@ jobs:
           import json
           import pathlib
           import xml.etree.ElementTree as ET
-
           root = pathlib.Path('upload/src/addons/Warext/SSS')
           json.loads((root / 'addon.json').read_text(encoding='utf-8'))
           for path in sorted((root / '_data').glob('*.xml')):
               ET.parse(path)
               print(f'XML OK: {path}')
-          required = [
-              root / 'Setup.php',
-              root / 'Widget' / 'FaqList.php',
-              root / '_data' / 'widget_definitions.xml',
-              root / '_data' / 'templates.xml'
-          ]
+          required = [root / 'Setup.php', root / 'Widget' / 'FaqList.php', root / '_data' / 'widget_definitions.xml', root / '_data' / 'templates.xml']
           missing = [str(p) for p in required if not p.is_file()]
           if missing:
               raise SystemExit('Missing required files: ' + ', '.join(missing))
@@ -82,24 +76,14 @@ jobs:
           mkdir -p build/upload/src/addons/Warext
           cp -a upload/src/addons/Warext/SSS build/upload/src/addons/Warext/SSS
           cp README.md build/README.md
-
           python3 - <<'PY'
-          import hashlib
-          import json
-          import pathlib
-
+          import hashlib, json, pathlib
           base = pathlib.Path('build/upload')
           hashes = {}
           for path in sorted(p for p in base.rglob('*') if p.is_file()):
-              rel = path.relative_to(base).as_posix()
-              hashes[rel] = hashlib.sha256(path.read_bytes()).hexdigest()
-          pathlib.Path('build/hashes.json').write_text(
-              json.dumps(hashes, ensure_ascii=False, indent=4, sort_keys=True) + '\n',
-              encoding='utf-8'
-          )
-          print(f'Generated hashes.json with {len(hashes)} files')
+              hashes[path.relative_to(base).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+          pathlib.Path('build/hashes.json').write_text(json.dumps(hashes, ensure_ascii=False, indent=4, sort_keys=True) + '\n', encoding='utf-8')
           PY
-
           (cd build && zip -r -9 "../${ZIP}" upload hashes.json README.md)
           unzip -l "${ZIP}"
 
@@ -113,16 +97,8 @@ jobs:
           ZIP='${{ steps.version.outputs.zip }}'
           VERSION='${{ steps.version.outputs.version }}'
           TITLE="Warext Studios | XenForo S.S.S. Sistemi v${VERSION}"
-          cat > /tmp/release-notes.md <<EOF
-XenForo 2.3+ için kategori tabanlı Sıkça Sorulan Sorular eklentisi. Güncel sürüm: v${VERSION}. ZIP dosyası XenForo ACP > Add-ons > Install/upgrade from archive alanından doğrudan kurulabilir.
-
----
-
-## English
-
-A category-based Frequently Asked Questions add-on for XenForo 2.3+. Current version: v${VERSION}. The ZIP file can be installed directly through XenForo ACP > Add-ons > Install/upgrade from archive.
-EOF
-
+          echo 'WGVuRm9ybyAyLjMrIGnDp2luIGthdGVnb3JpIHRhYmFubMSxIFPEsWvDp2EgU29ydWxhbiBTb3J1bGFyIGVrbGVudGlzaS4gR8O8bmNlbCBzw7xyw7xtOiB2MS4xLjQuIFpJUCBkb3N5YXPEsSBYZW5Gb3JvIEFDUCA+IEFkZC1vbnMgPiBJbnN0YWxsL3VwZ3JhZGUgZnJvbSBhcmNoaXZlIGFsYW7EsW5kYW4gZG/En3J1ZGFuIGt1cnVsYWJpbGlyLgoKLS0tCgojIyBFbmdsaXNoCgpBIGNhdGVnb3J5LWJhc2VkIEZyZXF1ZW50bHkgQXNrZWQgUXVlc3Rpb25zIGFkZC1vbiBmb3IgWGVuRm9ybyAyLjMrLiBDdXJyZW50IHZlcnNpb246IHYxLjEuNC4gVGhlIFpJUCBmaWxlIGNhbiBiZSBpbnN0YWxsZWQgZGlyZWN0bHkgdGhyb3VnaCBYZW5Gb3JvIEFDUCA+IEFkZC1vbnMgPiBJbnN0YWxsL3VwZ3JhZGUgZnJvbSBhcmNoaXZlLgo=' | base64 --decode > /tmp/release-notes.md
+          sed -i "s/v1.1.4/v${VERSION}/g" /tmp/release-notes.md
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release edit "$TAG" --title "$TITLE" --notes-file /tmp/release-notes.md
             gh release upload "$TAG" "$ZIP" --clobber

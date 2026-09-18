@@ -1,4 +1,6 @@
-# Warext Studios | XenForo S.S.S. Sistemi
+# Warext Studios | XenForo FAQ System
+
+## Türkçe
 
 **Güncel sürüm: v1.1.4**
 
@@ -32,9 +34,15 @@ Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlan
 ## Kurulum
 GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` dosyasını indirin ve XenForo ACP üzerinden **Add-ons → Install/upgrade from archive** alanına yükleyin.
 
+## Destek
+
+Sorularınız, hata bildirimleriniz, kurulum desteği ve Warext Studios XenForo eklentileriyle ilgili yardım için destek Discord sunucumuza katılabilirsiniz:
+
+**Discord:** https://discord.gg/tgsV5XMcFS
+
 ---
 
-# English
+## English
 
 **Current version: v1.1.4**
 
@@ -70,3 +78,9 @@ Warext Studios | XenForo FAQ System is a category-based Frequently Asked Questio
 ## Installation
 
 Download `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` from GitHub Releases and upload it through XenForo ACP → **Add-ons → Install/upgrade from archive**.
+
+## Support
+
+For questions, bug reports, installation support, and help with Warext Studios XenForo add-ons, you can join our support Discord server:
+
+**Discord:** https://discord.gg/tgsV5XMcFS

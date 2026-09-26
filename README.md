@@ -84,3 +84,8 @@ GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` do
 Sorularınız, hata bildirimleriniz, kurulum desteği ve Warext Studios XenForo eklentileriyle ilgili yardım için destek Discord sunucumuza katılabilirsiniz:
 
 **Discord:** https://discord.gg/tgsV5XMcFS
+
+
+## Language support / Dil desteği
+
+Version 1.2.0 adds native Turkish/English language packs under `languages/` and phrase-backed interface text. See `LANGUAGE.md`.

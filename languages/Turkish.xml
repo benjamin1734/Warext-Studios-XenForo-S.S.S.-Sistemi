@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Warext FAQ Türkçe (TR)" date_format="j F Y" time_format="H:i" decimal_point="," thousands_separator="." language_code="tr-TR" text_direction="LTR">
+  <phrase title="permission_group_wrxtSss" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Sıkça Sorulan Sorular Sistemi]]></phrase>
+  <phrase title="permission_wrxtSss_view" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasını görüntüleyebilir]]></phrase>
+  <phrase title="admin_permission_wrxtSssManage" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sistemini yönet]]></phrase>
+  <phrase title="admin_navigation.wrxtSssRoot" addon_id="Warext/SSS" global_cache="0" version_id="1010400" version_string="1.1.4"><![CDATA[Warext S.S.S. Sistemi]]></phrase>
+  <phrase title="admin_navigation.wrxtSssCategories" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS Kategorileri]]></phrase>
+  <phrase title="admin_navigation.wrxtSssFaqs" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS Soruları]]></phrase>
+  <phrase title="admin_navigation.wrxtSssSettings" addon_id="Warext/SSS" global_cache="0" version_id="1010400" version_string="1.1.4"><![CDATA[SSS Ayarları]]></phrase>
+  <phrase title="nav.wrxtSss" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS]]></phrase>
+  <phrase title="widget_def.wrxt_sss_faq" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Warext SSS: Sıkça Sorulanlar]]></phrase>
+  <phrase title="widget_def_desc.wrxt_sss_faq" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS kayıtlarından kısa bir listeyi seçtiğiniz widget konumunda gösterir.]]></phrase>
+  <phrase title="wrxt_sss_title" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Sıkça Sorulan Sorular]]></phrase>
+  <phrase title="wrxt_sss_description" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Forum hakkında en sık sorulan soruların cevaplarına buradan ulaşabilirsiniz.]]></phrase>
+  <phrase title="wrxt_sss_empty" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Henüz yayınlanmış bir SSS bulunmuyor.]]></phrase>
+  <phrase title="wrxt_sss_search_placeholder" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS içinde ara...]]></phrase>
+  <phrase title="wrxt_sss_open_all" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Tümünü aç]]></phrase>
+  <phrase title="wrxt_sss_close_all" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Tümünü kapat]]></phrase>
+  <phrase title="option_group_wrxtSssSettings" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Warext SSS Sistemi]]></phrase>
+  <phrase title="option_group_wrxtSssSettings_description" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasının temel görünüm ve davranış ayarları.]]></phrase>
+  <phrase title="option_wrxtSssPageTitle" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfa başlığı]]></phrase>
+  <phrase title="option_wrxtSssPageTitle_explain" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfasının üst kısmında ve tarayıcı başlığında gösterilir.]]></phrase>
+  <phrase title="option_wrxtSssPageDescription" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS sayfa açıklaması]]></phrase>
+  <phrase title="option_wrxtSssPageDescription_explain" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[SSS başlığının altında gösterilen kısa açıklamadır.]]></phrase>
+  <phrase title="option_wrxtSssSearchEnabled" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Liste filtreleme alanını göster]]></phrase>
+  <phrase title="option_wrxtSssOpenCloseButtons" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Tümünü aç / kapat butonlarını göster]]></phrase>
+  <phrase title="option_wrxtSssExclusiveOpen" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Aynı anda yalnızca bir cevap açık kalsın]]></phrase>
+  <phrase title="option_wrxtSssShowPermalinks" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Doğrudan soru bağlantısını göster]]></phrase>
+  <phrase title="option_wrxtSssBadgeDays" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Yeni / güncellendi etiketi süresi]]></phrase>
+  <phrase title="option_wrxtSssBadgeDays_explain" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Etiketlerin kaç gün gösterileceğini belirler. 0 girilirse etiketler kapatılır.]]></phrase>
+  <phrase title="wrxt_sss_i18n_number_of_questions_to_display" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Gösterilecek soru sayısı]]></phrase>
+  <phrase title="wrxt_sss_i18n_category_name" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kategori adı]]></phrase>
+  <phrase title="wrxt_sss_i18n_description" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Açıklama]]></phrase>
+  <phrase title="wrxt_sss_i18n_font_awesome_icon" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Font Awesome ikonu]]></phrase>
+  <phrase title="wrxt_sss_i18n_example_fa_circle_question_you_may_leave_this_blan" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Örnek: fa-circle-question. Boş bırakabilirsiniz.]]></phrase>
+  <phrase title="wrxt_sss_i18n_user_groups_that_can_view" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Görüntüleyebilecek kullanıcı grupları]]></phrase>
+  <phrase title="wrxt_sss_i18n_if_no_selection_is_made_anyone_with_faq_view_permi" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Seçim yapmazsanız SSS görüntüleme izni olan herkes görebilir.]]></phrase>
+  <phrase title="wrxt_sss_i18n_display_order" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Görüntüleme sırası]]></phrase>
+  <phrase title="wrxt_sss_i18n_save" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kaydet]]></phrase>
+  <phrase title="wrxt_sss_i18n_delete" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Sil]]></phrase>
+  <phrase title="wrxt_sss_i18n_save_order" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Sıralamayı kaydet]]></phrase>
+  <phrase title="wrxt_sss_i18n_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kategori]]></phrase>
+  <phrase title="wrxt_sss_i18n_filter" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Filtrele]]></phrase>
+  <phrase title="wrxt_sss_i18n_question" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Soru]]></phrase>
+  <phrase title="wrxt_sss_i18n_answer" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Cevap]]></phrase>
+  <phrase title="wrxt_sss_i18n_direct_link_key" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Doğrudan bağlantı anahtarı]]></phrase>
+  <phrase title="wrxt_sss_i18n_if_left_blank_it_will_be_generated_automatically_e" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Boş bırakırsanız otomatik oluşturulur. Örnek: kullanici-adi-degistirme]]></phrase>
+  <phrase title="wrxt_sss_i18n_if_no_selection_is_made_anyone_who_can_access_the_" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Seçim yapmazsanız kategoriye erişebilen herkes görebilir.]]></phrase>
+  <phrase title="wrxt_sss_i18n_load_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kategoriyi getir]]></phrase>
+  <phrase title="wrxt_sss_i18n_featured" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Öne çıkan]]></phrase>
+  <phrase title="wrxt_sss_i18n_new" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Yeni]]></phrase>
+  <phrase title="wrxt_sss_i18n_updated" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Güncellendi]]></phrase>
+  <phrase title="wrxt_sss_i18n_direct_link" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Doğrudan bağlantı]]></phrase>
+  <phrase title="wrxt_sss_i18n_no_faq_entry_matched_your_search" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Aramanızla eşleşen bir SSS bulunamadı.]]></phrase>
+  <phrase title="wrxt_sss_i18n_view_all_frequently_asked_questions" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Tüm sıkça sorulan soruları görüntüle]]></phrase>
+  <phrase title="wrxt_sss_i18n_show_featured_faq_entries_only" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Yalnızca öne çıkan SSS kayıtlarını göster]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kategori ekle]]></phrase>
+  <phrase title="wrxt_sss_i18n_drag_and_drop_to_reorder" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Sürükle-bırak sırala]]></phrase>
+  <phrase title="wrxt_sss_i18n_settings" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Ayarlar]]></phrase>
+  <phrase title="wrxt_sss_i18n_order" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Sıra]]></phrase>
+  <phrase title="wrxt_sss_i18n_status" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Durum]]></phrase>
+  <phrase title="wrxt_sss_i18n_group_restricted" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[· Grup kısıtlı]]></phrase>
+  <phrase title="wrxt_sss_i18n_active" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Aktif]]></phrase>
+  <phrase title="wrxt_sss_i18n_inactive" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Pasif]]></phrase>
+  <phrase title="wrxt_sss_i18n_no_faq_category_has_been_created_yet" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Henüz SSS kategorisi oluşturulmamış.]]></phrase>
+  <phrase title="wrxt_sss_i18n_edit_faq_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kategorisini Düzenle]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_faq_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kategorisi Ekle]]></phrase>
+  <phrase title="wrxt_sss_i18n_category_active" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kategori aktif]]></phrase>
+  <phrase title="wrxt_sss_i18n_delete_faq_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kategorisini Sil]]></phrase>
+  <phrase title="wrxt_sss_i18n_reorder_faq_categories" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kategorilerini Sırala]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_question" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Soru ekle]]></phrase>
+  <phrase title="wrxt_sss_i18n_categories" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Kategoriler]]></phrase>
+  <phrase title="wrxt_sss_i18n_all_categories" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Tüm kategoriler]]></phrase>
+  <phrase title="wrxt_sss_i18n_no_faq_entry_matches_this_filter" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Bu filtreye uygun SSS kaydı bulunmuyor.]]></phrase>
+  <phrase title="wrxt_sss_i18n_edit_faq_entry" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kaydını Düzenle]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_faq_entry" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kaydı Ekle]]></phrase>
+  <phrase title="wrxt_sss_i18n_faq_entry_active" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS kaydı aktif]]></phrase>
+  <phrase title="wrxt_sss_i18n_mark_as_featured" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Öne çıkan olarak işaretle]]></phrase>
+  <phrase title="wrxt_sss_i18n_delete_faq_entry" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Kaydını Sil]]></phrase>
+  <phrase title="wrxt_sss_i18n_reorder_faq_questions" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[SSS Sorularını Sırala]]></phrase>
+  <phrase title="wrxt_sss_i18n_there_are_no_questions_to_reorder_in_this_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Bu kategoride sıralanacak soru bulunmuyor.]]></phrase>
+  <phrase title="wrxt_sss_i18n_confirm_delete_category_x" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[“{title}” kategorisini silmek istediğinizden emin misiniz?]]></phrase>
+  <phrase title="wrxt_sss_i18n_confirm_delete_question_x" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[“{title}” sorusunu silmek istediğinizden emin misiniz?]]></phrase>
+</language>

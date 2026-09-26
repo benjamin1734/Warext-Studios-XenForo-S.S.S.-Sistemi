@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language title="Warext FAQ English (US)" date_format="M j, Y" time_format="g:i A" decimal_point="." thousands_separator="," language_code="en-US" text_direction="LTR">
+  <phrase title="permission_group_wrxtSss" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Frequently Asked Questions System]]></phrase>
+  <phrase title="permission_wrxtSss_view" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Can view the FAQ page]]></phrase>
+  <phrase title="admin_permission_wrxtSssManage" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Can manage the FAQ system]]></phrase>
+  <phrase title="admin_navigation.wrxtSssRoot" addon_id="Warext/SSS" global_cache="0" version_id="1010400" version_string="1.1.4"><![CDATA[Warext FAQ System]]></phrase>
+  <phrase title="admin_navigation.wrxtSssCategories" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[FAQ Categories]]></phrase>
+  <phrase title="admin_navigation.wrxtSssFaqs" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[FAQ Questions]]></phrase>
+  <phrase title="admin_navigation.wrxtSssSettings" addon_id="Warext/SSS" global_cache="0" version_id="1010400" version_string="1.1.4"><![CDATA[FAQ Settings]]></phrase>
+  <phrase title="nav.wrxtSss" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[FAQ]]></phrase>
+  <phrase title="widget_def.wrxt_sss_faq" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Warext FAQ: Frequently Asked Questions]]></phrase>
+  <phrase title="widget_def_desc.wrxt_sss_faq" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Displays a short list of FAQ entries in the selected widget position.]]></phrase>
+  <phrase title="wrxt_sss_title" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Frequently Asked Questions]]></phrase>
+  <phrase title="wrxt_sss_description" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Find answers to the most frequently asked questions about the forum here.]]></phrase>
+  <phrase title="wrxt_sss_empty" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[There are no published FAQ entries yet.]]></phrase>
+  <phrase title="wrxt_sss_search_placeholder" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Search FAQ...]]></phrase>
+  <phrase title="wrxt_sss_open_all" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Expand all]]></phrase>
+  <phrase title="wrxt_sss_close_all" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Collapse all]]></phrase>
+  <phrase title="option_group_wrxtSssSettings" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Warext FAQ System]]></phrase>
+  <phrase title="option_group_wrxtSssSettings_description" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Basic appearance and behavior settings for the FAQ page.]]></phrase>
+  <phrase title="option_wrxtSssPageTitle" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[FAQ page title]]></phrase>
+  <phrase title="option_wrxtSssPageTitle_explain" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Displayed at the top of the FAQ page and in the browser title.]]></phrase>
+  <phrase title="option_wrxtSssPageDescription" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[FAQ page description]]></phrase>
+  <phrase title="option_wrxtSssPageDescription_explain" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[A short description displayed below the FAQ title.]]></phrase>
+  <phrase title="option_wrxtSssSearchEnabled" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Show list filter field]]></phrase>
+  <phrase title="option_wrxtSssOpenCloseButtons" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Show expand/collapse all buttons]]></phrase>
+  <phrase title="option_wrxtSssExclusiveOpen" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Keep only one answer open at a time]]></phrase>
+  <phrase title="option_wrxtSssShowPermalinks" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Show direct question link]]></phrase>
+  <phrase title="option_wrxtSssBadgeDays" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[New / updated badge duration]]></phrase>
+  <phrase title="option_wrxtSssBadgeDays_explain" addon_id="Warext/SSS" global_cache="0" version_id="1010000" version_string="1.1.0"><![CDATA[Determines how many days the badges are shown. Enter 0 to disable badges.]]></phrase>
+  <phrase title="wrxt_sss_i18n_number_of_questions_to_display" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Number of questions to display]]></phrase>
+  <phrase title="wrxt_sss_i18n_category_name" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Category name]]></phrase>
+  <phrase title="wrxt_sss_i18n_description" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Description]]></phrase>
+  <phrase title="wrxt_sss_i18n_font_awesome_icon" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Font Awesome icon]]></phrase>
+  <phrase title="wrxt_sss_i18n_example_fa_circle_question_you_may_leave_this_blan" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Example: fa-circle-question. You may leave this blank.]]></phrase>
+  <phrase title="wrxt_sss_i18n_user_groups_that_can_view" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[User groups that can view]]></phrase>
+  <phrase title="wrxt_sss_i18n_if_no_selection_is_made_anyone_with_faq_view_permi" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[If no selection is made, anyone with FAQ view permission can see it.]]></phrase>
+  <phrase title="wrxt_sss_i18n_display_order" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Display order]]></phrase>
+  <phrase title="wrxt_sss_i18n_save" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Save]]></phrase>
+  <phrase title="wrxt_sss_i18n_delete" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Delete]]></phrase>
+  <phrase title="wrxt_sss_i18n_save_order" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Save order]]></phrase>
+  <phrase title="wrxt_sss_i18n_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Category]]></phrase>
+  <phrase title="wrxt_sss_i18n_filter" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Filter]]></phrase>
+  <phrase title="wrxt_sss_i18n_question" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Question]]></phrase>
+  <phrase title="wrxt_sss_i18n_answer" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Answer]]></phrase>
+  <phrase title="wrxt_sss_i18n_direct_link_key" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Direct-link key]]></phrase>
+  <phrase title="wrxt_sss_i18n_if_left_blank_it_will_be_generated_automatically_e" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[If left blank, it will be generated automatically. Example: change-username]]></phrase>
+  <phrase title="wrxt_sss_i18n_if_no_selection_is_made_anyone_who_can_access_the_" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[If no selection is made, anyone who can access the category can see it.]]></phrase>
+  <phrase title="wrxt_sss_i18n_load_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Load category]]></phrase>
+  <phrase title="wrxt_sss_i18n_featured" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Featured]]></phrase>
+  <phrase title="wrxt_sss_i18n_new" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[New]]></phrase>
+  <phrase title="wrxt_sss_i18n_updated" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Updated]]></phrase>
+  <phrase title="wrxt_sss_i18n_direct_link" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Direct link]]></phrase>
+  <phrase title="wrxt_sss_i18n_no_faq_entry_matched_your_search" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[No FAQ entry matched your search.]]></phrase>
+  <phrase title="wrxt_sss_i18n_view_all_frequently_asked_questions" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[View all frequently asked questions]]></phrase>
+  <phrase title="wrxt_sss_i18n_show_featured_faq_entries_only" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Show featured FAQ entries only]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Add category]]></phrase>
+  <phrase title="wrxt_sss_i18n_drag_and_drop_to_reorder" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Drag and drop to reorder]]></phrase>
+  <phrase title="wrxt_sss_i18n_settings" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Settings]]></phrase>
+  <phrase title="wrxt_sss_i18n_order" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Order]]></phrase>
+  <phrase title="wrxt_sss_i18n_status" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Status]]></phrase>
+  <phrase title="wrxt_sss_i18n_group_restricted" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[· Group restricted]]></phrase>
+  <phrase title="wrxt_sss_i18n_active" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Active]]></phrase>
+  <phrase title="wrxt_sss_i18n_inactive" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Inactive]]></phrase>
+  <phrase title="wrxt_sss_i18n_no_faq_category_has_been_created_yet" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[No FAQ category has been created yet.]]></phrase>
+  <phrase title="wrxt_sss_i18n_edit_faq_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Edit FAQ Category]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_faq_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Add FAQ Category]]></phrase>
+  <phrase title="wrxt_sss_i18n_category_active" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Category active]]></phrase>
+  <phrase title="wrxt_sss_i18n_delete_faq_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Delete FAQ Category]]></phrase>
+  <phrase title="wrxt_sss_i18n_reorder_faq_categories" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Reorder FAQ Categories]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_question" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Add question]]></phrase>
+  <phrase title="wrxt_sss_i18n_categories" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Categories]]></phrase>
+  <phrase title="wrxt_sss_i18n_all_categories" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[All categories]]></phrase>
+  <phrase title="wrxt_sss_i18n_no_faq_entry_matches_this_filter" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[No FAQ entry matches this filter.]]></phrase>
+  <phrase title="wrxt_sss_i18n_edit_faq_entry" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Edit FAQ Entry]]></phrase>
+  <phrase title="wrxt_sss_i18n_add_faq_entry" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Add FAQ Entry]]></phrase>
+  <phrase title="wrxt_sss_i18n_faq_entry_active" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[FAQ entry active]]></phrase>
+  <phrase title="wrxt_sss_i18n_mark_as_featured" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Mark as featured]]></phrase>
+  <phrase title="wrxt_sss_i18n_delete_faq_entry" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Delete FAQ Entry]]></phrase>
+  <phrase title="wrxt_sss_i18n_reorder_faq_questions" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Reorder FAQ Questions]]></phrase>
+  <phrase title="wrxt_sss_i18n_there_are_no_questions_to_reorder_in_this_category" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[There are no questions to reorder in this category.]]></phrase>
+  <phrase title="wrxt_sss_i18n_confirm_delete_category_x" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Are you sure you want to delete the “{title}” category?]]></phrase>
+  <phrase title="wrxt_sss_i18n_confirm_delete_question_x" addon_id="Warext/SSS" global_cache="0" version_id="1020000" version_string="1.2.0"><![CDATA[Are you sure you want to delete the “{title}” question?]]></phrase>
+</language>

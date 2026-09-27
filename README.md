@@ -2,8 +2,6 @@
 
 ## English
 
-**Current version: v1.1.4**
-
 Warext Studios | XenForo FAQ System is a category-based Frequently Asked Questions add-on for XenForo 2.3+ forums. Users browse questions on `/sss/`; clicking a question expands its answer directly below it on the same page. The interface follows XenForo's default style structure and automatically works with the active theme's colors.
 
 ## Features
@@ -35,7 +33,7 @@ Warext Studios | XenForo FAQ System is a category-based Frequently Asked Questio
 
 ## Installation
 
-Download `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` from GitHub Releases and upload it through XenForo ACP → **Add-ons → Install/upgrade from archive**.
+Download the latest package from [GitHub Releases](https://github.com/benjamin1734/Warext-Studios-XenForo-S.S.S.-Sistemi/releases) and upload it through XenForo ACP → **Add-ons → Install/upgrade from archive**.
 
 ## Support
 
@@ -46,8 +44,6 @@ For questions, bug reports, installation support, and help with Warext Studios X
 ---
 
 ## Türkçe
-
-**Güncel sürüm: v1.1.4**
 
 Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlanmış kategori tabanlı bir Sıkça Sorulan Sorular eklentisidir. Kullanıcılar `/sss/` sayfasında soruları görüntüler; bir soruya tıkladığında cevap aynı sayfa üzerinde hemen altında açılır. Tasarım XenForo'nun varsayılan tema yapısını kullanır ve mevcut tema renkleriyle uyumlu çalışır.
 
@@ -77,7 +73,7 @@ Warext Studios | XenForo S.S.S. Sistemi, XenForo 2.3+ forumları için hazırlan
 - PHP 8.0+
 
 ## Kurulum
-GitHub Releases bölümündeki `Warext-Studios-XenForo-SSS-Sistemi-1.1.4.zip` dosyasını indirin ve XenForo ACP üzerinden **Add-ons → Install/upgrade from archive** alanına yükleyin.
+En güncel paketi [GitHub Releases](https://github.com/benjamin1734/Warext-Studios-XenForo-S.S.S.-Sistemi/releases) bölümünden indirip XenForo ACP → **Add-ons → Install/upgrade from archive** alanına yükleyin.
 
 ## Destek
 
@@ -85,7 +81,5 @@ Sorularınız, hata bildirimleriniz, kurulum desteği ve Warext Studios XenForo 
 
 **Discord:** https://discord.gg/tgsV5XMcFS
 
-
 ## Language support / Dil desteği
 
-Version 1.2.0 adds native Turkish/English language packs under `languages/` and phrase-backed interface text. See `LANGUAGE.md`.
